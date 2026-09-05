@@ -53,7 +53,7 @@ class EditController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.piggyBanks'));
-                app('view')->share('mainTitleIcon', 'fa-bullseye');
+                app('view')->share('mainTitleIcon', 'track_changes');
 
                 $this->attachments = app(AttachmentHelperInterface::class);
                 $this->piggyRepos  = app(PiggyBankRepositoryInterface::class);
@@ -79,7 +79,7 @@ class EditController extends Controller
     public function edit(PiggyBank $piggyBank)
     {
         $subTitle     = (string) trans('firefly.update_piggy_title', ['name' => $piggyBank->name]);
-        $subTitleIcon = 'fa-pencil';
+        $subTitleIcon = 'edit';
         $note         = $piggyBank->notes()->first();
         // Flash some data to fill the form.
         $targetDate   = $piggyBank->target_date?->format('Y-m-d');

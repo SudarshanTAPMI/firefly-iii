@@ -16,7 +16,7 @@
         </template>
         <li class="nav-item" role="presentation">
             <button class="nav-link" type="button" role="tab" @click="addSplit()"
-            ><em class="fa-solid fa-plus-circle"></em>
+            ><em class="material-icons-outlined">add_circle</em>
             </button>
         </li>
         <li class="nav-item">

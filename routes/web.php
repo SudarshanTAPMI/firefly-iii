@@ -824,6 +824,9 @@ Route::group(
         // doesn't see in the request (notifications, convertToPrimary, etc.) -- a lightweight
         // header toggle posting just darkMode would wipe those out as a side effect.
         Route::post('dark-mode', ['uses' => 'PreferencesController@setDarkMode', 'as' => 'dark-mode']);
+        // Same reasoning as dark-mode above: its own minimal endpoint so toggling the
+        // sidebar doesn't round-trip (or risk resetting) the rest of the preferences form.
+        Route::post('sidebar-collapse', ['uses' => 'PreferencesController@setSidebarCollapse', 'as' => 'sidebar-collapse']);
     }
 );
 

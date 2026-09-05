@@ -59,7 +59,7 @@ class TagController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.tags'));
-                app('view')->share('mainTitleIcon', 'fa-tag');
+                app('view')->share('mainTitleIcon', 'sell');
 
                 $this->attachmentsHelper = app(AttachmentHelperInterface::class);
                 $this->repository        = app(TagRepositoryInterface::class);
@@ -77,7 +77,7 @@ class TagController extends Controller
     public function create(Request $request)
     {
         $subTitle     = (string) trans('firefly.new_tag');
-        $subTitleIcon = 'fa-tag';
+        $subTitleIcon = 'sell';
 
         // location info:
         $hasOldInput  = null !== $request->old('_token');
@@ -122,7 +122,7 @@ class TagController extends Controller
     public function edit(Tag $tag)
     {
         $subTitle     = (string) trans('firefly.edit_tag', ['tag' => $tag->tag]);
-        $subTitleIcon = 'fa-tag';
+        $subTitleIcon = 'sell';
 
         $location     = $this->repository->getLocation($tag);
         $latitude     = $location instanceof Location ? $location->latitude : config('firefly.default_location.latitude');
@@ -225,7 +225,7 @@ class TagController extends Controller
     public function show(Request $request, Tag $tag, ?Carbon $start = null, ?Carbon $end = null)
     {
         // default values:
-        $subTitleIcon = 'fa-tag';
+        $subTitleIcon = 'sell';
         $page         = (int) $request->get('page');
         $pageSize     = (int) app('preferences')->get('listPageSize', 50)->data;
         $start       ??= session('start');
@@ -269,7 +269,7 @@ class TagController extends Controller
     public function showAll(Request $request, Tag $tag)
     {
         // default values:
-        $subTitleIcon = 'fa-tag';
+        $subTitleIcon = 'sell';
         $page         = (int) $request->get('page');
         $pageSize     = (int) app('preferences')->get('listPageSize', 50)->data;
         $periods      = [];

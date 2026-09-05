@@ -159,8 +159,16 @@ $(function () {
           //alert('ho!')
       });
 
-      //collapsed-box
-
+      // AdminLTE's own box-widget plugin toggles a fa-minus/fa-plus *class* on
+      // collapse/expand, hardcoded in adminlte.min.js -- but this button's icon
+      // is now a Material ligature glyph (its own text content, not a class),
+      // so that toggle silently no-ops. Mirror it here via the plugin's own
+      // collapsed.boxwidget/expanded.boxwidget events instead.
+      $('.box').on('collapsed.boxwidget', function () {
+          $(this).find('[data-widget="collapse"] .material-icons-outlined').text('add');
+      }).on('expanded.boxwidget', function () {
+          $(this).find('[data-widget="collapse"] .material-icons-outlined').text('remove');
+      });
 
       // test rule triggers button:
       $('.test_rule_triggers').click(testRuleTriggers);
@@ -176,7 +184,7 @@ function testRuleTriggers(e) {
         icon = $('span', obj);
     }
     // change icon:
-    icon.addClass('fa-spinner fa-spin').removeClass('fa-flask');
+    icon.addClass('spin').text('autorenew');
 
     var modal = $("#testTriggerModal");
     // respond to modal:
@@ -210,7 +218,10 @@ function testRuleTriggers(e) {
 }
 
 function disableRuleSpinners() {
-    $('i.test_rule_triggers').removeClass('fa-spin fa-spinner').addClass('fa-flask');
+    // pre-existing selector never actually matched (the icon is a <span>, not an
+    // <i>) -- this restores the flask icon after the test-triggers modal closes,
+    // same span the click handler above spins.
+    $('.test_rule_triggers span').removeClass('spin').text('science');
 }
 
 

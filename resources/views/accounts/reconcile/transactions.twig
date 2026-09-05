@@ -8,8 +8,8 @@
         <th class="hidden-xs hidden-sm">{{ trans('list.date') }}</th>
         <th class="hidden-xs hidden-sm hidden-md">{{ trans('list.from') }}</th>
         <th class="hidden-xs hidden-sm hidden-md">{{ trans('list.to') }}</th>
-        <th class="hidden-xs"><span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}"></span></th>
-        <th class="hidden-xs"><span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}"></span></th>
+        <th class="hidden-xs"><span class="material-icons-outlined" title="{{ trans('list.budget') }}">pie_chart</span></th>
+        <th class="hidden-xs"><span class="material-icons-outlined" title="{{ trans('list.category') }}">bookmark</span></th>
     </tr>
     </thead>
     <tbody>
@@ -62,9 +62,9 @@
             <td class="hidden-xs">
                 <div class="btn-group btn-group-xs">
                     <a href="{{ route('transactions.edit', [journal.transaction_group_id]) }}" class="btn btn-xs btn-default"><span
-                                class="fa fa-fw fa-pencil"></span></a>
+                                class="material-icons-outlined">edit</span></a>
                     <a href="{{ route('transactions.delete', [journal.transaction_group_id]) }}" class="btn btn-danger"><span
-                                class="fa fa-trash"></span></a>
+                                class="material-icons-outlined">delete</span></a>
                 </div>
 
             </td>
@@ -72,22 +72,22 @@
             <!-- icon -->
             <td class="hidden-xs">
                 {% if journal.transaction_type_type == 'Withdrawal' %}
-                    <span class="fa fa-long-arrow-left fa-fw" title="{{ trans('firefly.Withdrawal') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Withdrawal') }}">arrow_back</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Deposit' %}
-                    <span class="fa fa-long-arrow-right fa-fw" title="{{ trans('firefly.Deposit') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Deposit') }}">arrow_right_alt</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Transfer' %}
-                    <span class="fa fa-exchange fa-fw" title="{{ trans('firefly.Transfer') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Transfer') }}">sync_alt</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Reconciliation' %}
-                    <span class="fa-fw fa fa-calculator" title="{{ trans('firefly.reconciliation_transaction') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.reconciliation_transaction') }}">calculate</span>
                 {% endif %}
                 {% if journal.transaction_type_type == 'Opening balance' %}
-                    <span class="fa-fw fa fa-star-o" title="{{ trans('firefly.Opening balance') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Opening balance') }}">star_border</span>
                 {% endif %}
             </td>
 
@@ -95,7 +95,7 @@
             <td>
                 <a href="{{ route('transactions.show', [journal.transaction_group_id]) }}" title="{{ journal.description }}">
                     {% if journal.group_title %}
-                        <span class="text-muted"><span class="fa fa-fw fa-share-alt" aria-hidden="true"></span></span> {{ journal.group_title }}:
+                        <span class="text-muted"><span class="material-icons-outlined" aria-hidden="true">share</span></span> {{ journal.group_title }}:
                     {% endif %}
                     {{ journal.description }}</a>
             </td>
@@ -112,7 +112,7 @@
             <td>
                 {% if journal.date >= start and journal.date <= end  %}
                     {% if journal.reconciled %}
-                        <span class="fa fa-check" aria-hidden="true"></span>
+                        <span class="material-icons-outlined" aria-hidden="true">check</span>
                         <input type="hidden" name="cleared[]" data-younger="{% if journal.date < start %}true{% else %}false{% endif %}"
                         data-inrange="{% if journal.date >= start and journal.date <= end  %}true{% else %}false"{% endif %}"
                         class="cleared" data-id="{{ journal.transaction_journal_id }}" value="{{ journal.amount }}">
@@ -127,7 +127,7 @@
                 {% else %}
                     <!-- if not in range, just show reconciliation status -->
                     {% if journal.reconciled %}
-                        <span class="fa fa-check" aria-hidden="true"></span>
+                        <span class="material-icons-outlined" aria-hidden="true">check</span>
                     {% else %}
                         <!--TODO include icon -->
                     {% endif %}

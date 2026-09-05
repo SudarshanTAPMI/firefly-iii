@@ -97,18 +97,18 @@
                                     <tr>
                                         <td>
                                             <template x-if="'withdrawal' === transaction.type">
-                                                <em class="fa fa-solid fa-arrow-left"
-                                                    title="TODO TRANSLATION"></em>
+                                                <em class="material-icons-outlined"
+                                                    title="TODO TRANSLATION">arrow_back</em>
                                             </template>
 
                                             <template x-if="'deposit' === transaction.type">
-                                                <em class="fa-solid fa-arrow-right"
-                                                    :title="transaction.typeTranslated"></em>
+                                                <em class="material-icons-outlined"
+                                                    :title="transaction.typeTranslated">arrow_forward</em>
                                             </template>
 
                                             <template x-if="'transfer' === transaction.type">
-                                                <em class="fa-solid fa-rotate"
-                                                    :title="transaction.typeTranslated"></em>
+                                                <em class="material-icons-outlined"
+                                                    :title="transaction.typeTranslated">refresh</em>
                                             </template>
                                             <template
                                                 x-if="'transfer' !== transaction.type && 'deposit' !== transaction.type && 'withdrawal' !== transaction.type">

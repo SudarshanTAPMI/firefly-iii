@@ -64,7 +64,7 @@
                                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
                                                         aria-haspopup="true" aria-expanded="false"
                                                         title="{{ 'actions'|_ }}">
-                                                    <span class="fa fa-ellipsis-h"></span>
+                                                    <span class="material-icons-outlined">more_horiz</span>
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                                     {# Setting your own administration's primary currency only ever touches your own
@@ -74,7 +74,7 @@
                                                     {% if notPrimary %}
                                                         <li>
                                                             <a href="#" class="make_default" data-code="{{ currency.code }}">
-                                                                <span class="fa fa-fw fa-star"></span> {{ 'make_default_currency'|_ }}
+                                                                <span class="material-icons-outlined">star</span> {{ 'make_default_currency'|_ }}
                                                             </a>
                                                         </li>
                                                     {% endif %}
@@ -84,12 +84,12 @@
                                                         {% endif %}
                                                         <li>
                                                             <a href="{{ route('currencies.edit',currency.id) }}">
-                                                                <span class="fa fa-fw fa-pencil"></span> {{ 'edit'|_ }}
+                                                                <span class="material-icons-outlined">edit</span> {{ 'edit'|_ }}
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="{{ route('currencies.delete',currency.id) }}">
-                                                                <span class="fa fa-fw fa-trash"></span> {{ 'delete'|_ }}
+                                                                <span class="material-icons-outlined">delete</span> {{ 'delete'|_ }}
                                                             </a>
                                                         </li>
                                                     {% endif %}

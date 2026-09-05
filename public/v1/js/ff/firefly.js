@@ -91,6 +91,26 @@ $(function () {
         return false;
     });
 
+    // Sidebar collapse/expand: AdminLTE's own PushMenu plugin only ever toggles
+    // .sidebar-collapse on <body> for the current page -- it has no concept of
+    // "remember this across navigation". These two custom events (collapsed.pushMenu /
+    // expanded.pushMenu) fire on <body> every time it does that toggle, regardless of
+    // whether it was a click or (on narrow screens) a resize; persist whichever state
+    // it lands on so the next page load's own server-rendered body class matches.
+    $('body').on('collapsed.pushMenu expanded.pushMenu', function () {
+        $.ajax({
+            url: sidebarCollapseToggleUrl,
+            data: {collapsed: $('body').hasClass('sidebar-collapse')},
+            type: 'POST',
+            headers: {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content'),
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).fail(function () {
+            console.error('Could not save sidebar state');
+        });
+    });
+
     // build the data range:
     $('#daterange').text(dateRangeMeta.title).daterangepicker(
         {

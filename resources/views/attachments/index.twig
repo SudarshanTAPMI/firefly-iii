@@ -30,9 +30,9 @@
                             <tr>
                                 <td data-value="{{ att.id }}">
                                     <div class="btn-group btn-group-xs">
-                                        <a href="{{ route('attachments.edit', att.id) }}" class="btn btn-default"><span class="fa fa-pencil"></span></a>
-                                        <a href="{{ route('attachments.delete', att.id) }}" class="btn btn-danger"><span class="fa fa-trash"></span></a>
-                                        <a href="{{ route('attachments.download', att.id) }}" class="btn btn-default"><span class="fa fa-download"></span></a>
+                                        <a href="{{ route('attachments.edit', att.id) }}" class="btn btn-default"><span class="material-icons-outlined">edit</span></a>
+                                        <a href="{{ route('attachments.delete', att.id) }}" class="btn btn-danger"><span class="material-icons-outlined">delete</span></a>
+                                        <a href="{{ route('attachments.download', att.id) }}" class="btn btn-default"><span class="material-icons-outlined">download</span></a>
                                     </div>
                                 </td>
                                 <td data-value="{{ att.filename }}">
@@ -53,9 +53,9 @@
                                 </td>
                                 <td data-value="{% if att.file_exists %}1{% else %}0{% endif %}">
                                     {% if att.file_exists %}
-                                        <span class="fa fa-check text-success"></span>
+                                        <span class="material-icons-outlined text-success">check</span>
                                     {% else %}
-                                        <span class="fa fa-warning text-danger"></span>
+                                        <span class="material-icons-outlined text-danger">warning</span>
                                     {% endif %}
                                 </td>
                             </tr>

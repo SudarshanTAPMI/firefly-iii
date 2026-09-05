@@ -103,9 +103,15 @@ trait GetConfigurationData
             : sprintf('%s - %s', $start->isoFormat($this->monthAndDayFormat), $end->isoFormat($this->monthAndDayFormat));
         $isCustom       = true === session('is_custom_range', false);
         $today          = today(config('app.timezone'));
+        // A month-long view range reads better in the presets list as generic "This
+        // month" / "Last month" than as a repeat of the header's own "September, 2026"
+        // label ($title, unaffected below); other view ranges (week, quarter, year, ...)
+        // keep their existing specific period name.
+        $isMonthRange   = in_array($viewRange, ['1M', 'month', 'monthly'], true);
+        $currentLabel   = $isMonthRange ? (string) trans('firefly.range_this_month') : $title;
         $ranges         = [
             // first range is the current range:
-            $title => [$start, $end],
+            $currentLabel => [$start, $end],
         ];
         Log::debug(sprintf('dateRange: the date range in the session is"%s" - "%s"', $start->format('Y-m-d'), $end->format('Y-m-d')));
 
@@ -116,19 +122,15 @@ trait GetConfigurationData
             $customPeriodEnd   = app('navigation')->endOfPeriod($customPeriodStart, $viewRange);
             $ranges[$index]    = [$customPeriodStart, $customPeriodEnd];
         }
-        // then add previous range and next range, but skip this for the lastX and YTD stuff.
+        // then add the previous range, but skip this for the lastX and YTD stuff. No
+        // "next" range: the period navigator's arrows already cover that, and a preset
+        // for it just duplicates them.
         if (!in_array($viewRange, config('firefly.dynamic_date_ranges', []), true)) {
-            $previousDate   = app('navigation')->subtractPeriod($start, $viewRange);
-            $index          = app('navigation')->periodShow($previousDate, $viewRange);
-            $previousStart  = app('navigation')->startOfPeriod($previousDate, $viewRange);
-            $previousEnd    = app('navigation')->endOfPeriod($previousStart, $viewRange);
-            $ranges[$index] = [$previousStart, $previousEnd];
-
-            $nextDate       = app('navigation')->addPeriod($start, $viewRange, 0);
-            $index          = app('navigation')->periodShow($nextDate, $viewRange);
-            $nextStart      = app('navigation')->startOfPeriod($nextDate, $viewRange);
-            $nextEnd        = app('navigation')->endOfPeriod($nextStart, $viewRange);
-            $ranges[$index] = [$nextStart, $nextEnd];
+            $previousDate           = app('navigation')->subtractPeriod($start, $viewRange);
+            $previousStart          = app('navigation')->startOfPeriod($previousDate, $viewRange);
+            $previousEnd            = app('navigation')->endOfPeriod($previousStart, $viewRange);
+            $previousLabel          = $isMonthRange ? (string) trans('firefly.range_last_month') : app('navigation')->periodShow($previousDate, $viewRange);
+            $ranges[$previousLabel] = [$previousStart, $previousEnd];
         }
 
         // today:

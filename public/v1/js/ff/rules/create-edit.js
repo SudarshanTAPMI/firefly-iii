@@ -471,8 +471,8 @@ function testRuleTriggers() {
     // find the button:
     var button = $('.test_rule_triggers');
 
-    // replace with spinner. fa-spin fa-spinner
-    button.html('<span class="fa fa-spin fa-spinner"></span> ' + testRuleTriggersText);
+    // replace with spinner.
+    button.html('<span class="material-icons-outlined spin">autorenew</span> ' + testRuleTriggersText);
     button.attr('disabled', 'disabled');
 
     // Serialize all trigger data
@@ -496,10 +496,12 @@ function testRuleTriggers() {
             modal.find(".transaction-warning").hide();
         }
         button.removeAttr('disabled');
-        button.html('<span class="fa fa-flask"></span> ' + testRuleTriggersText);
+        button.html('<span class="material-icons-outlined">science</span> ' + testRuleTriggersText);
         // Show the modal dialog
         modal.modal();
     }).fail(function () {
+        button.removeAttr('disabled');
+        button.html('<span class="material-icons-outlined">science</span> ' + testRuleTriggersText);
         alert('Cannot get transactions for given triggers.');
     });
     return false;

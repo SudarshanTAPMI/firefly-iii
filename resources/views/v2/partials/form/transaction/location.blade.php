@@ -1,7 +1,7 @@
 @if(true === $optionalFields['location'])
     <div class="row mb-3">
         <label :for="'map_' + index" class="col-sm-1 col-form-label d-none d-sm-block">
-            <em title="{{ __('firefly.location') }}" class="fa-solid fa-earth-europe"></em>
+            <em title="{{ __('firefly.location') }}" class="material-icons-outlined">public</em>
         </label>
         <template x-if="index > 0">
             <div class="col-sm-10">

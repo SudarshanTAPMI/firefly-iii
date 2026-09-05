@@ -70,6 +70,8 @@
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- Material Icons Outlined: framework-agnostic, shared with the v1 layout. --}}
+    <link href="v1/css/material-icons.css?v={{ $FF_VERSION }}" rel="stylesheet" type="text/css">
     @yield('styles')
     @vite(['src/sass/app.scss'])
 

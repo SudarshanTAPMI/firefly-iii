@@ -1,7 +1,7 @@
 <div class="row mb-2">
     <template x-if="loadingAccounts">
         <p class="text-center">
-            <em class="fa-solid fa-spinner fa-spin"></em>
+            <em class="material-icons-outlined spin">autorenew</em>
         </p>
     </template>
     <template x-for="account in accountList">
@@ -34,13 +34,13 @@
                                     <template x-if="group.title">
                                         <span>
                                             <template x-if="group.transactions[0].type === 'withdrawal'">
-                                                <span class="text-muted fa-solid fa-arrow-left fa-fw"></span>
+                                                <span class="material-icons-outlined text-muted">arrow_back</span>
                                             </template>
                                             <template x-if="group.transactions[0].type === 'deposit'">
-                                               <span class="text-muted fa-solid fa-arrow-right fa-fw"></span>
+                                               <span class="material-icons-outlined text-muted">arrow_forward</span>
                                             </template>
                                             <template x-if="group.transactions[0].type === 'transfer'">
-                                                <span class="text-muted fa-solid fa-arrows-rotate fa-fw"></span>
+                                                <span class="material-icons-outlined text-muted">sync</span>
                                             </template>
                                         <a :href="'{{route('transactions.show', '') }}/' + group.id" x-text="group.title"></a><br/></span>
                                     </template>
@@ -53,13 +53,13 @@
                                             <template x-if="!group.title">
                                                 <span>
                                                   <template x-if="transaction.type == 'withdrawal'">
-                                                      <span class="text-muted fa-solid fa-arrow-left fa-fw"></span>
+                                                      <span class="material-icons-outlined text-muted">arrow_back</span>
                                                   </template>
                                                   <template x-if="transaction.type == 'deposit'">
-                                                      <span class="text-muted fa-solid fa-arrow-right fa-fw"></span>
+                                                      <span class="material-icons-outlined text-muted">arrow_forward</span>
                                                   </template>
                                                   <template x-if="transaction.type == 'transfer'">
-                                                      <span class="text-muted fa-solid fa-arrows-rotate fa-fw"></span>
+                                                      <span class="material-icons-outlined text-muted">sync</span>
                                                   </template>
                                                   <a :href="'{{route('transactions.show', '') }}/' + group.id" x-text="transaction.description"></a>
                                                 </span>

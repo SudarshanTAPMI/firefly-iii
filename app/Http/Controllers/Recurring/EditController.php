@@ -66,7 +66,7 @@ class EditController extends Controller
         // translations:
         $this->middleware(
             function ($request, $next) {
-                app('view')->share('mainTitleIcon', 'fa-paint-brush');
+                app('view')->share('mainTitleIcon', 'palette');
                 app('view')->share('title', (string) trans('firefly.recurrences'));
                 app('view')->share('subTitle', (string) trans('firefly.recurrences'));
 

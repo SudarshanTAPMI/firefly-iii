@@ -47,7 +47,7 @@ class DeleteController extends Controller
 
         $this->middleware(
             function ($request, $next) {
-                app('view')->share('mainTitleIcon', 'fa-envelope-o');
+                app('view')->share('mainTitleIcon', 'mail');
                 app('view')->share('title', (string) trans('firefly.object_groups_page_title'));
 
                 $this->repository = app(ObjectGroupRepositoryInterface::class);

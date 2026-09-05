@@ -17,13 +17,13 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                        <em class="fa-solid fa-bars"></em>
+                        <em class="material-icons-outlined">menu</em>
                     </a>
                 </li>
                 <!--begin::Navbar Search-->
                 <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <em class="fa-solid fa-magnifying-glass"></em>
+                        <em class="material-icons-outlined">search</em>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -48,7 +48,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link daterange-holder d-none d-sm-block" data-bs-toggle="dropdown" href="#"></a>
                     <a class="nav-link daterange-icon d-block d-sm-none" data-bs-toggle="dropdown" href="#">
-                        <em class="fa-regular fa-calendar-days"></em>
+                        <em class="material-icons-outlined">calendar_month</em>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                         <a href="#" class="dropdown-item daterange-current" @click="changeDateRange">
@@ -107,7 +107,7 @@
                     <div class="col-sm-6">
                         <h3 class="mb-0">
                             @if($mainTitleIcon)
-                                <em class="fa {{ $mainTitleIcon }}"></em>
+                                <em class="material-icons-outlined">{{ $mainTitleIcon }}</em>
                             @endif
                             {{ $title }} @if($subTitle)
                                 <small class="text-muted" id="pageSubTitle">

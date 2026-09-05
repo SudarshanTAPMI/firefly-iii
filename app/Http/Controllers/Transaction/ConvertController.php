@@ -70,7 +70,7 @@ class ConvertController extends Controller
             function ($request, $next) {
                 $this->accountRepository = app(AccountRepositoryInterface::class);
                 app('view')->share('title', (string) trans('firefly.transactions'));
-                app('view')->share('mainTitleIcon', 'fa-exchange');
+                app('view')->share('mainTitleIcon', 'sync_alt');
 
                 return $next($request);
             }
@@ -100,7 +100,7 @@ class ConvertController extends Controller
         $groupTitle           = $group->title ?? $first->description;
         $groupArray           = $transformer->transformObject($group);
         $subTitle             = (string) trans('firefly.convert_to_'.$destinationType->type, ['description' => $groupTitle]);
-        $subTitleIcon         = 'fa-exchange';
+        $subTitleIcon         = 'sync_alt';
 
         // get a list of asset accounts and liabilities and stuff, in various combinations:
         $validDepositSources  = $this->getValidDepositSources();

@@ -1,7 +1,7 @@
 <div class="row mb-3">
     <label :for="'tags_' + index"
            class="col-sm-1 col-form-label d-none d-sm-block">
-        <em title="{{ __('firefly.tags') }}" class="fa-solid fa-tag"></em>
+        <em title="{{ __('firefly.tags') }}" class="material-icons-outlined">sell</em>
     </label>
     <div class="col-sm-10">
         <select

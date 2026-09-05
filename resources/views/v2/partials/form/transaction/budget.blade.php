@@ -2,11 +2,11 @@
     <div class="row mb-3">
         <label :for="'budget_id_' + index"
                class="col-sm-1 col-form-label d-none d-sm-block">
-            <em title="{{ __('firefly.budget') }}" class="fa-solid fa-chart-pie"></em>
+            <em title="{{ __('firefly.budget') }}" class="material-icons-outlined">pie_chart</em>
         </label>
         <div class="col-sm-10">
             <template x-if="formStates.loadingBudgets">
-                <span class="form-control-plaintext"><em class="fa-solid fa-spinner fa-spin"></em></span>
+                <span class="form-control-plaintext"><em class="material-icons-outlined spin">autorenew</em></span>
             </template>
             <template x-if="!formStates.loadingBudgets">
                 <select class="form-control"

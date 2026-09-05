@@ -87,7 +87,7 @@
     </template>
     <template x-if="loading">
         <p class="text-center">
-            <em class="fa-solid fa-spinner fa-spin"></em>
+            <em class="material-icons-outlined spin">autorenew</em>
         </p>
     </template>
     {{--

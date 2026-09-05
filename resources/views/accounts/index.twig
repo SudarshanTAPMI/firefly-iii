@@ -7,7 +7,7 @@
 {% block header_actions %}
     {% if accounts.count() > 0 %}
         <a class="btn btn-success content-header-actions" href="{{ route('accounts.create', objectType) }}">
-            <span class="fa fa-plus fa-fw"></span> {{ ('make_new_' ~ objectType ~ '_account')|_ }}
+            <span class="material-icons-outlined">add</span> {{ ('make_new_' ~ objectType ~ '_account')|_ }}
         </a>
     {% endif %}
 {% endblock %}

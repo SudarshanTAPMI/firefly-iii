@@ -16,7 +16,7 @@
     <div class="period-nav content-header-actions" id="periodNavigator">
         <a href="{{ route('budgets.index', [prevLoop[0].start.format('Y-m-d'), prevLoop[0].end.format('Y-m-d')]) }}"
            class="btn btn-default period-nav__step" title="{{ prevLoop[0].title }}" aria-label="{{ prevLoop[0].title }}">
-            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+            <span class="material-icons-outlined" aria-hidden="true">chevron_left</span>
         </a>
 
         <select class="form-control selectPeriod period-nav__picker" name="period"
@@ -35,7 +35,7 @@
 
         <a href="{{ route('budgets.index', [nextLoop[0].start.format('Y-m-d'), nextLoop[0].end.format('Y-m-d')]) }}"
            class="btn btn-default period-nav__step" title="{{ nextLoop[0].title }}" aria-label="{{ nextLoop[0].title }}">
-            <span class="fa fa-chevron-right" aria-hidden="true"></span>
+            <span class="material-icons-outlined" aria-hidden="true">chevron_right</span>
         </a>
 
         <a href="{{ route('budgets.index') }}" class="btn btn-default period-nav__today">{{ 'current_period'|_ }}</a>
@@ -200,7 +200,7 @@
                 <div class="box">
                     <div class="box-header with-border box-header--actions">
                         <h3 class="box-title">{{ 'budgets'|_ }}</h3>
-                        <a href="{{ route('budgets.create') }}" class="btn btn-success btn-sm"><span class="fa fa-plus fa-fw"></span> {{ 'createBudget'|_ }}</a>
+                        <a href="{{ route('budgets.create') }}" class="btn btn-success btn-sm"><span class="material-icons-outlined">add</span> {{ 'createBudget'|_ }}</a>
                     </div>
                     <div class="box-body no-padding">
                         <table class="table table-bordered sortable-table table-striped sortable" id="budgetList">
@@ -219,7 +219,7 @@
                             {% for budget in budgets %}
                                 <tr data-id="{{ budget.id }}">
                                     <td class="hidden-sm hidden-xs budgets-table__handle">
-                                        <a href="#" class="handle object-handle btn btn-default btn-xs"><span class="fa fa-fw fa-bars"></span></a>
+                                        <a href="#" class="handle object-handle btn btn-default btn-xs"><span class="material-icons-outlined">menu</span></a>
                                     </td>
                                     <td>
                                         {% if 0 == budget.budgeted|length %}
@@ -239,17 +239,17 @@
 
                                         {% if budget.auto_budget %}
                                             {% if 1 == budget.auto_budget.auto_budget_type %}
-                                                <span class="fa fa-fw fa-calendar-check-o" title="{{ 'auto_budget_reset_icon'|_ }}"></span>
+                                                <span class="material-icons-outlined" title="{{ 'auto_budget_reset_icon'|_ }}">event_available</span>
                                             {% endif %}
                                             {% if 2 == budget.auto_budget.auto_budget_type %}
-                                                <span class="fa fa-fw fa-calendar-plus-o" title="{{ 'auto_budget_rollover_icon'|_ }}"></span>
+                                                <span class="material-icons-outlined" title="{{ 'auto_budget_rollover_icon'|_ }}">event</span>
                                             {% endif %}
                                             {% if 3 == budget.auto_budget.auto_budget_type %}
-                                                <span class="fa fa-fw fa-calendar-plus-o" title="{{ 'auto_budget_adjusted_icon'|_ }}"></span>
+                                                <span class="material-icons-outlined" title="{{ 'auto_budget_adjusted_icon'|_ }}">event</span>
                                             {% endif %}
                                         {% endif %}
                                         {% if budget.attachments.count() > 0 %}
-                                            <span class="fa fa-paperclip"></span>
+                                            <span class="material-icons-outlined">attach_file</span>
                                         {% endif %}
                                     </td>
                                     <td>
@@ -289,7 +289,7 @@
                                                             </li>
                                                         </ul>
                                                         {% if '' != budgetLimit.notes %}
-                                                            <a href="#" class="btn btn-default show_bl" data-id="{{ budgetLimit.id }}"><em title="{{ 'view_notes'|_ }}" class="fa fa-commenting-o" aria-hidden="true"></em></a>
+                                                            <a href="#" class="btn btn-default show_bl" data-id="{{ budgetLimit.id }}"><em title="{{ 'view_notes'|_ }}" class="material-icons-outlined" aria-hidden="true">forum</em></a>
                                                         {% endif %}
                                                     </div>
                                                 </div>
@@ -299,7 +299,7 @@
                                         {% endif %}
                                         {% if budget.budgeted|length < currencies.count() %}
                                             <a href="#" class="btn btn-light btn-xs create_bl" data-id="{{ budget.id }}">
-                                                <span class="fa fa-plus-circle"></span>
+                                                <span class="material-icons-outlined">add_circle</span>
                                             </a>
                                         {% endif %}
                                     </td>
@@ -383,17 +383,17 @@
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false" title="{{ 'actions'|_ }}">
-                                                <span class="fa fa-ellipsis-v"></span>
+                                                <span class="material-icons-outlined">more_vert</span>
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                                 <li>
                                                     <a href="{{ route('budgets.edit', budget.id) }}">
-                                                        <span class="fa fa-fw fa-pencil"></span> {{ 'edit'|_ }}
+                                                        <span class="material-icons-outlined">edit</span> {{ 'edit'|_ }}
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ route('budgets.delete', budget.id) }}">
-                                                        <span class="fa fa-fw fa-trash-o"></span> {{ 'delete'|_ }}
+                                                        <span class="material-icons-outlined">delete_outline</span> {{ 'delete'|_ }}
                                                     </a>
                                                 </li>
                                             </ul>
@@ -448,7 +448,7 @@
                                 <div class="clearfix">
                                     <a href="{{ route('budgets.show',budget.id) }}">{{ budget.name }}</a>
                                     <a href="{{ route('budgets.edit',budget.id) }}" class="pull-right" title="{{ 'edit'|_ }}">
-                                        <span class="fa fa-fw fa-pencil"></span>
+                                        <span class="material-icons-outlined">edit</span>
                                     </a>
                                 </div>
                             {% endfor %}

@@ -55,7 +55,7 @@ class EditController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.transactions'));
-                app('view')->share('mainTitleIcon', 'fa-exchange');
+                app('view')->share('mainTitleIcon', 'sync_alt');
 
                 $this->repository = app(JournalRepositoryInterface::class);
 
@@ -83,7 +83,7 @@ class EditController extends Controller
         $allowedSourceDests         = config('firefly.source_dests');
         $title                      = $transactionGroup->transactionJournals()->count() > 1 ? $transactionGroup->title : $transactionGroup->transactionJournals()->first()->description;
         $subTitle                   = (string) trans('firefly.edit_transaction_title', ['description' => $title]);
-        $subTitleIcon               = 'fa-plus';
+        $subTitleIcon               = 'add';
         $primaryCurrency            = $this->primaryCurrency;
         $cash                       = $repository->getCashAccount();
         $previousUrl                = $this->rememberPreviousUrl('transactions.edit.url');

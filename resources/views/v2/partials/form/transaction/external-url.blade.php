@@ -2,7 +2,7 @@
 <div class="row mb-3">
     <label :for="'external_url_' + index"
            class="col-sm-1 col-form-label d-none d-sm-block">
-        <em title="{{ __('firefly.external_url') }}" class="fa-solid fa-link"></em>
+        <em title="{{ __('firefly.external_url') }}" class="material-icons-outlined">link</em>
     </label>
     <div class="col-sm-10">
         <input type="text"

@@ -60,8 +60,8 @@ class ReportController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.reports'));
-                app('view')->share('mainTitleIcon', 'fa-bar-chart');
-                app('view')->share('subTitleIcon', 'fa-calendar');
+                app('view')->share('mainTitleIcon', 'bar_chart');
+                app('view')->share('subTitleIcon', 'calendar_month');
                 $this->helper     = app(ReportHelperInterface::class);
                 $this->repository = app(BudgetRepositoryInterface::class);
 

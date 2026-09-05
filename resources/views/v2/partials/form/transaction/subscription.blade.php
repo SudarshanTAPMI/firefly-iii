@@ -1,11 +1,11 @@
 <template x-if="groupProperties.transactionType != 'transfer' && groupProperties.transactionType != 'deposit'">
     <div class="row mb-3">
         <label :for="'bill_id_' + index" class="col-sm-1 col-form-label d-none d-sm-block">
-            <em title="{{ __('firefly.subscription') }}" class="fa-solid fa-calendar"></em>
+            <em title="{{ __('firefly.subscription') }}" class="material-icons-outlined">calendar_month</em>
         </label>
         <div class="col-sm-10">
             <template x-if="formStates.loadingSubscriptions">
-                <span class="form-control-plaintext"><em class="fa-solid fa-spinner fa-spin"></em></span>
+                <span class="form-control-plaintext"><em class="material-icons-outlined spin">autorenew</em></span>
             </template>
             <template x-if="!formStates.loadingSubscriptions">
                 <select class="form-control"

@@ -2,7 +2,7 @@
     <div class="row mb-3">
         <label :for="'attachments_' + index"
                class="col-sm-1 col-form-label d-none d-sm-block">
-            <em title="{{ __('firefly.attachments') }}" class="fa-solid fa-file-import"></em>
+            <em title="{{ __('firefly.attachments') }}" class="material-icons-outlined">upload_file</em>
         </label>
         <div class="col-sm-10">
             <input type="file" multiple

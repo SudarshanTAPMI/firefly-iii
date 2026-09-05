@@ -68,7 +68,7 @@ class IndexController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.budgets'));
-                app('view')->share('mainTitleIcon', 'fa-pie-chart');
+                app('view')->share('mainTitleIcon', 'pie_chart');
                 $this->repository         = app(BudgetRepositoryInterface::class);
                 $this->opsRepository      = app(OperationsRepositoryInterface::class);
                 $this->abRepository       = app(AvailableBudgetRepositoryInterface::class);

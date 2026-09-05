@@ -127,6 +127,7 @@ abstract class Controller extends BaseController
                 $this->monthAndDayFormat = (string) trans('config.month_and_day_js', [], $locale);
                 $this->dateTimeFormat    = (string) trans('config.date_time_js', [], $locale);
                 $darkMode                = 'browser';
+                $sidebarCollapse         = false;
                 $this->primaryCurrency   = null;
                 // get shown-intro-preference:
                 if (auth()->check()) {
@@ -134,6 +135,7 @@ abstract class Controller extends BaseController
                     $language               = Steam::getLanguage();
                     $locale                 = Steam::getLocale();
                     $darkMode               = app('preferences')->get('darkMode', 'browser')->data;
+                    $sidebarCollapse        = true === app('preferences')->get('sidebarCollapse', false)->data;
                     $this->convertToPrimary = Amount::convertToPrimary();
                     $page                   = $this->getPageName();
                     $shownDemo              = $this->hasSeenDemo();
@@ -158,6 +160,7 @@ abstract class Controller extends BaseController
 
                 }
                 View::share('darkMode', $darkMode);
+                View::share('sidebarCollapse', $sidebarCollapse);
 
                 return $next($request);
             }

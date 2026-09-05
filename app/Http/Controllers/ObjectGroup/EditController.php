@@ -50,7 +50,7 @@ class EditController extends Controller
 
         $this->middleware(
             function ($request, $next) {
-                app('view')->share('mainTitleIcon', 'fa-envelope-o');
+                app('view')->share('mainTitleIcon', 'mail');
                 app('view')->share('title', (string) trans('firefly.object_groups_page_title'));
 
                 $this->repository = app(ObjectGroupRepositoryInterface::class);
@@ -68,7 +68,7 @@ class EditController extends Controller
     public function edit(ObjectGroup $objectGroup)
     {
         $subTitle     = (string) trans('firefly.edit_object_group', ['title' => $objectGroup->title]);
-        $subTitleIcon = 'fa-pencil';
+        $subTitleIcon = 'edit';
 
         if (true !== session('object-groups.edit.fromUpdate')) {
             $this->rememberPreviousUrl('object-groups.edit.url');

@@ -53,7 +53,7 @@ class LinkController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.transactions'));
-                app('view')->share('mainTitleIcon', 'fa-exchange');
+                app('view')->share('mainTitleIcon', 'sync_alt');
 
                 $this->journalRepository = app(JournalRepositoryInterface::class);
                 $this->repository        = app(LinkTypeRepositoryInterface::class);
@@ -70,7 +70,7 @@ class LinkController extends Controller
      */
     public function delete(TransactionJournalLink $link)
     {
-        $subTitleIcon = 'fa-link';
+        $subTitleIcon = 'link';
         $subTitle     = (string) trans('breadcrumbs.delete_journal_link');
         $this->rememberPreviousUrl('journal_links.delete.url');
 

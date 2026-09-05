@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <button type="submit" class="btn btn-info"><span class="fa fa-search"></span> {{ 'search'|_ }}</button>
+                                <button type="submit" class="btn btn-info"><span class="material-icons-outlined">search</span> {{ 'search'|_ }}</button>
                                 {% if ruleId > 0 and ruleChanged %}
                                     <a href="{{ route('rules.edit', [ruleId]) }}?from_query={{ fullQuery }}"
                                        class="btn btn-default">{{ trans('firefly.update_rule_from_query', {rule: rule.title}) }}</a>
@@ -97,15 +97,15 @@
                         <div class="search_results" style="display: none;"></div>
                         {# loading indicator #}
                         <div class="overlay">
-                            <span class="fa fa-refresh fa-spin"></span>
+                            <span class="material-icons-outlined spin">refresh</span>
                         </div>
 
                         <div class="row mass_edit_all hidden-xs" style="display: none;">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <div class="mass_button_options btn-group btn-group" style="display:none;">
-                                    <a href="#" class="btn btn-default mass_edit"><span class="fa fa-fw fa-pencil"></span> <span>{{ 'edit_selected'|_ }}</span></a>
+                                    <a href="#" class="btn btn-default mass_edit"><span class="material-icons-outlined">edit</span> <span>{{ 'edit_selected'|_ }}</span></a>
                                     <a href="#" class="btn btn-default bulk_edit"><span>{{ 'bulk_edit'|_ }}</span></a>
-                                    <a href="#" class="btn btn-danger mass_delete"><span class="fa fa-fw fa-trash"></span>
+                                    <a href="#" class="btn btn-danger mass_delete"><span class="material-icons-outlined">delete</span>
                                         <span>{{ 'delete_selected'|_ }}</span></a>
                                 </div>
                             </div>
@@ -113,9 +113,9 @@
 
                                 <div class="mass_buttons btn-group btn-group pull-right">
                                     <a href="#" class="btn btn-default mass_select"><span
-                                            class="fa fa-fw fa-check-square-o"></span> {{ 'select_transactions'|_ }}</a>
-                                    <a href="#" class="btn btn-default mass_stop_select" style="display:none;"><span class="fa faw-fw fa-square-o"
-                                        ></span> {{ 'stop_selection'|_ }}</a>
+                                            class="material-icons-outlined">check_box</span> {{ 'select_transactions'|_ }}</a>
+                                    <a href="#" class="btn btn-default mass_stop_select" style="display:none;"><span class="material-icons-outlined faw-fw"
+                                        >check_box_outline_blank</span> {{ 'stop_selection'|_ }}</a>
                                 </div>
                             </div>
                         </div>

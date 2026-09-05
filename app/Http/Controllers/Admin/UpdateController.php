@@ -49,7 +49,7 @@ class UpdateController extends Controller
         $this->middleware(
             static function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.system_settings'));
-                app('view')->share('mainTitleIcon', 'fa-hand-spock-o');
+                app('view')->share('mainTitleIcon', 'back_hand');
 
                 return $next($request);
             }
@@ -65,7 +65,7 @@ class UpdateController extends Controller
     public function index()
     {
         $subTitle        = (string) trans('firefly.update_check_title');
-        $subTitleIcon    = 'fa-star';
+        $subTitleIcon    = 'star';
         $permission      = app('fireflyconfig')->get('permission_update_check', -1);
         $channel         = app('fireflyconfig')->get('update_channel', 'stable');
         $selected        = $permission->data;

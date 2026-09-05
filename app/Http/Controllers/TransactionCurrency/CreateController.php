@@ -56,7 +56,7 @@ class CreateController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.currencies'));
-                app('view')->share('mainTitleIcon', 'fa-usd');
+                app('view')->share('mainTitleIcon', 'attach_money');
                 $this->repository     = app(CurrencyRepositoryInterface::class);
                 $this->userRepository = app(UserRepositoryInterface::class);
 
@@ -80,7 +80,7 @@ class CreateController extends Controller
             return redirect(route('currencies.index'));
         }
 
-        $subTitleIcon = 'fa-plus';
+        $subTitleIcon = 'add';
         $subTitle     = (string) trans('firefly.create_currency');
 
         // put previous url in session if not redirect from store (not "create another").

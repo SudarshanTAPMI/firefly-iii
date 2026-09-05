@@ -1083,26 +1083,38 @@ label {
     border-right: 1px solid var(--ip-border);
 }
 
+/* Geist's Calendar explicitly calls for "a real button... avoiding
+   menu-style presentation" for presets -- each one gets its own border and
+   surface instead of being a flush row in a list, with a gap between them
+   so they read as separate controls, not one continuous menu. */
 .daterangepicker .ranges ul {
-    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
 }
 
 .daterangepicker .ranges li {
-    padding: 7px 10px;
-    border-radius: 4px;
+    padding: 7px 12px;
+    border: 1px solid var(--ip-border);
+    border-radius: 6px;
+    background: var(--ip-surface);
     color: var(--ip-fg-muted);
     font-size: 13px;
+    font-weight: 500;
 }
 
 .daterangepicker .ranges li:hover {
-    background: var(--ip-surface);
+    border-color: var(--ip-border-strong);
+    background: var(--ip-surface-raised);
     color: var(--ip-fg);
 }
 
 .daterangepicker .ranges li.active {
+    border-color: var(--ip-accent);
     background: var(--ip-accent-tint);
     color: var(--ip-accent-strong);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .daterangepicker .calendar-table {
