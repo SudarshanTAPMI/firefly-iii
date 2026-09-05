@@ -136,6 +136,25 @@ textarea:focus-visible,
     background-color: var(--ip-header-bg);
 }
 
+/* Logo images: AdminLTE sits .logo-mini/.logo-lg on a line-height:50px line
+   (see .main-header .logo in AdminLTE.min.css), so an inline <img> needs
+   vertical-align:middle to actually center on it rather than baseline-align.
+   Both source images are shipped at 2x their display height for retina,
+   width:auto keeps each one's own aspect ratio (the mini icon is square,
+   the full lockup a ~4.2:1 wordmark). */
+.logo-img {
+    vertical-align: middle;
+    width: auto;
+}
+
+.logo-img--mini {
+    height: 34px;
+}
+
+.logo-img--full {
+    height: 42px;
+}
+
 .skin-firefly-iii .main-header .navbar .nav > li > a {
     color: var(--ip-fg-on-header);
 }
@@ -161,8 +180,13 @@ textarea:focus-visible,
    replaced. Sibling items (#daterange, "Hey <name>") vertically center via
    padding:15px on an <a>/<span> that fills the 50px header -- this is a
    <div>, so it never picked that up on its own; center its <li> directly
-   instead of trying to replicate that padding math on a 3-button pill. */
-.theme-switcher-item {
+   instead of trying to replicate that padding math on a 3-button pill.
+   Needs the .navbar-custom-menu ancestor to outrank bootstrap.min.css's
+   `.nav > li { display: block }` (0,1,1 vs. a bare `.theme-switcher-item`'s
+   0,1,0) -- without it this rule loses on specificity regardless of load
+   order and silently no-ops, which is exactly what happened here: the div
+   sat flush against the top of its 50px <li> instead of centered. */
+.navbar-custom-menu .theme-switcher-item {
     display: flex;
     align-items: center;
     height: 50px;
