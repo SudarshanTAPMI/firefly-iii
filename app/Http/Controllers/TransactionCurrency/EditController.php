@@ -52,7 +52,7 @@ class EditController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.currencies'));
-                app('view')->share('mainTitleIcon', 'fa-usd');
+                app('view')->share('mainTitleIcon', 'attach_money');
                 $this->repository     = app(CurrencyRepositoryInterface::class);
                 $this->userRepository = app(UserRepositoryInterface::class);
 
@@ -77,7 +77,7 @@ class EditController extends Controller
             return redirect(route('currencies.index'));
         }
 
-        $subTitleIcon     = 'fa-pencil';
+        $subTitleIcon     = 'edit';
         $subTitle         = (string) trans('breadcrumbs.edit_currency', ['name' => $currency->name]);
         $currency->symbol = htmlentities($currency->symbol);
 

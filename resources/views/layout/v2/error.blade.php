@@ -62,6 +62,7 @@
         })()
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="v1/css/material-icons.css?v={{ $FF_VERSION }}" rel="stylesheet" type="text/css">
     @vite(['src/sass/app.scss'])
 
 </head>

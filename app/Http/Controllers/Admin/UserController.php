@@ -56,7 +56,7 @@ class UserController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.system_settings'));
-                app('view')->share('mainTitleIcon', 'fa-hand-spock-o');
+                app('view')->share('mainTitleIcon', 'back_hand');
                 $this->repository = app(UserRepositoryInterface::class);
 
                 return $next($request);
@@ -134,7 +134,7 @@ class UserController extends Controller
         session()->forget('users.edit.fromUpdate');
 
         $subTitle       = (string) trans('firefly.edit_user', ['email' => $user->email]);
-        $subTitleIcon   = 'fa-user-o';
+        $subTitleIcon   = 'person';
         $currentUser    = auth()->user();
         $isAdmin        = $this->repository->hasRole($user, 'owner');
         $codes          = [
@@ -155,7 +155,7 @@ class UserController extends Controller
     public function index()
     {
         $subTitle       = (string) trans('firefly.user_administration');
-        $subTitleIcon   = 'fa-users';
+        $subTitleIcon   = 'group';
         $users          = $this->repository->all();
         $singleUserMode = (bool) app('fireflyconfig')->get('single_user_mode', config('firefly.configuration.single_user_mode'))->data;
         $allowInvites   = false;
@@ -197,9 +197,9 @@ class UserController extends Controller
     public function show(User $user)
     {
         $title         = (string) trans('firefly.system_settings');
-        $mainTitleIcon = 'fa-hand-spock-o';
+        $mainTitleIcon = 'back_hand';
         $subTitle      = (string) trans('firefly.single_user_administration', ['email' => $user->email]);
-        $subTitleIcon  = 'fa-user';
+        $subTitleIcon  = 'person';
         $information   = $this->repository->getUserData($user);
 
         return view(

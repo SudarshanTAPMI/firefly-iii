@@ -38,11 +38,11 @@
                                     <div class="btn-group">
                                         <button @click="cancelForm()" class="btn btn-danger text-white"
                                                 :disabled="formStates.isSubmitting">
-                                            <em class="fa-solid fa-arrow-left"></em>
+                                            <em class="material-icons-outlined">arrow_back</em>
                                             {{ __('firefly.cancel')  }}</button>
                                         <button class="btn btn-primary text-white" :disabled="formStates.isSubmitting"
                                                 @click="submitForm()">
-                                            <em class="fa-regular fa-circle-check"></em>
+                                            <em class="material-icons-outlined">check_circle</em>
                                             {{ __('firefly.submit') }}</button>
                                     </div>
                                 </div>

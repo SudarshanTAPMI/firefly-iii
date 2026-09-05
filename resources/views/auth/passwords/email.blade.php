@@ -35,7 +35,7 @@
                 <div class="input-group mb-3">
                     <input type="email" autofocus required class="form-control" name="email"
                            placeholder="{{ trans('form.email') }}"/>
-                    <div class="input-group-text"> <em class="fa-solid fa-envelope"></em> </div>
+                    <div class="input-group-text"> <em class="material-icons-outlined">mail</em> </div>
                 </div>
                 <div class="row">
                     <div class="col-12">

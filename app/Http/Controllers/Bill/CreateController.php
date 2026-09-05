@@ -53,7 +53,7 @@ class CreateController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.bills'));
-                app('view')->share('mainTitleIcon', 'fa-calendar-o');
+                app('view')->share('mainTitleIcon', 'calendar_month');
                 $this->attachments = app(AttachmentHelperInterface::class);
                 $this->repository  = app(BillRepositoryInterface::class);
 

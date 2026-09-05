@@ -51,7 +51,7 @@ class HomeController extends Controller
     {
         parent::__construct();
         app('view')->share('title', 'Firefly III');
-        app('view')->share('mainTitleIcon', 'fa-fire');
+        app('view')->share('mainTitleIcon', 'local_fire_department');
         $this->middleware(Installer::class);
     }
 

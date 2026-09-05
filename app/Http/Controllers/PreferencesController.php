@@ -62,7 +62,7 @@ class PreferencesController extends Controller
         $this->middleware(
             static function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.preferences'));
-                app('view')->share('mainTitleIcon', 'fa-gear');
+                app('view')->share('mainTitleIcon', 'settings');
 
                 return $next($request);
             }
@@ -354,6 +354,18 @@ class PreferencesController extends Controller
             return response()->json(['ok' => 'error'], 422);
         }
         Preferences::set('darkMode', $mode);
+
+        return response()->json(['ok' => 'ok']);
+    }
+
+    /**
+     * Persists the sidebar's collapsed/expanded state (AdminLTE's PushMenu plugin only
+     * ever toggles a body class for the current page load; without this, the sidebar
+     * silently resets to expanded on every navigation and every refresh).
+     */
+    public function setSidebarCollapse(Request $request): JsonResponse
+    {
+        Preferences::set('sidebarCollapse', $request->boolean('collapsed'));
 
         return response()->json(['ok' => 'ok']);
     }

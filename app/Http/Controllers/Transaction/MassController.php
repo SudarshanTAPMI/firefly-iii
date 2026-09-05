@@ -60,7 +60,7 @@ class MassController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.transactions'));
-                app('view')->share('mainTitleIcon', 'fa-exchange');
+                app('view')->share('mainTitleIcon', 'sync_alt');
                 $this->repository = app(JournalRepositoryInterface::class);
 
                 return $next($request);

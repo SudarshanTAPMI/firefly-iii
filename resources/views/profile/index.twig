@@ -105,7 +105,7 @@
 
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                     <button type="submit" class="btn btn-danger btn-xs"><span
-                                                class="fa fa-refresh"></span> {{ 'regenerate_command_line_token'|_ }}
+                                                class="material-icons-outlined">refresh</span> {{ 'regenerate_command_line_token'|_ }}
                                     </button>
                                 </p>
                             </form>
@@ -132,7 +132,7 @@
 
                                     <div class="btn-group">
                                         <a class="btn btn-info" href="{{ route('profile.code') }}">
-                                            <span class="fa fa-recycle"></span>
+                                            <span class="material-icons-outlined">autorenew</span>
                                             {{ 'pref_two_factor_auth_reset_code'|_ }}</a>
                                     </div>
                                     <form method="post" action="{{ route('profile.delete-code') }}">
@@ -149,7 +149,7 @@
                                     <form action="{{ route('profile.enable2FA') }}" method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                         <button type="submit" class="btn btn-info"><span
-                                                    class="fa fa-lock"></span> {{ 'pref_enable_two_factor_auth'|_ }}
+                                                    class="material-icons-outlined">lock</span> {{ 'pref_enable_two_factor_auth'|_ }}
                                         </button>
                                     </form>
                                 {% endif %}
@@ -174,7 +174,7 @@
                                     <button type="button"
                                             data-success="{{ trans('firefly.purged_all_records')|escape('html') }}"
                                             data-type="purge" class="confirm btn btn-warning btn-sm"><span
-                                                class="fa fa-trash"></span> {{ 'purge_all_data'|_ }}</button>
+                                                class="material-icons-outlined">delete</span> {{ 'purge_all_data'|_ }}</button>
 
                                 </p>
 
@@ -196,29 +196,29 @@
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_budgets')|escape('html') }}"
                                             data-type="budgets" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-pie-chart"></span> {{ 'delete_all_budgets'|_ }}</button>
+                                                class="material-icons-outlined">pie_chart</span> {{ 'delete_all_budgets'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_bills')|escape('html') }}"
                                             data-type="bills" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-calendar-o"></span> {{ 'delete_all_bills'|_ }}</button>
+                                                class="material-icons-outlined">calendar_month</span> {{ 'delete_all_bills'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_piggy_banks')|escape('html') }}"
                                             data-type="piggy_banks" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-bullseye"></span> {{ 'delete_all_piggy_banks'|_ }}</button>
+                                                class="material-icons-outlined">track_changes</span> {{ 'delete_all_piggy_banks'|_ }}</button>
                                 </div>
                                 <h4>{{ 'automation'|_ }}</h4>
                                 <div class="btn-group">
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_rules')|escape('html') }}"
                                             data-type="rules" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-random"></span> {{ 'delete_all_rules'|_ }}</button>
+                                                class="material-icons-outlined">shuffle</span> {{ 'delete_all_rules'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_recurring')|escape('html') }}"
                                             data-type="recurring" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-paint-brush"></span> {{ 'delete_all_recurring'|_ }}
+                                                class="material-icons-outlined">palette</span> {{ 'delete_all_recurring'|_ }}
                                     </button>
                                 </div>
 
@@ -227,17 +227,17 @@
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_categories')|escape('html') }}"
                                             data-type="categories" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-bookmark"></span> {{ 'delete_all_categories'|_ }}</button>
+                                                class="material-icons-outlined">bookmark</span> {{ 'delete_all_categories'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_tags')|escape('html') }}"
                                             data-type="tags" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-tag"></span> {{ 'delete_all_tags'|_ }}</button>
+                                                class="material-icons-outlined">sell</span> {{ 'delete_all_tags'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_object_groups')|escape('html') }}"
                                             data-type="object_groups" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-envelope-o"></span> {{ 'delete_all_object_groups'|_ }}
+                                                class="material-icons-outlined">mail</span> {{ 'delete_all_object_groups'|_ }}
                                     </button>
                                 </div>
 
@@ -249,28 +249,28 @@
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_accounts')|escape('html') }}"
                                             data-type="accounts" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-credit-card"></span> {{ 'delete_all_accounts'|_ }}</button>
+                                                class="material-icons-outlined">credit_card</span> {{ 'delete_all_accounts'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_asset_accounts')|escape('html') }}"
                                             data-type="asset_accounts" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-money"></span> {{ 'delete_all_asset_accounts'|_ }}</button>
+                                                class="material-icons-outlined">payments</span> {{ 'delete_all_asset_accounts'|_ }}</button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_expense_accounts')|escape('html') }}"
                                             data-type="expense_accounts" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-shopping-cart"></span> {{ 'delete_all_expense_accounts'|_ }}
+                                                class="material-icons-outlined">shopping_cart</span> {{ 'delete_all_expense_accounts'|_ }}
                                     </button>
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_revenue_accounts')|escape('html') }}"
                                             data-type="revenue_accounts" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-download"></span> {{ 'delete_all_revenue_accounts'|_ }}
+                                                class="material-icons-outlined">download</span> {{ 'delete_all_revenue_accounts'|_ }}
                                     </button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_liabilities')|escape('html') }}"
                                             data-type="liabilities" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-ticket"></span> {{ 'delete_all_liabilities'|_ }}</button>
+                                                class="material-icons-outlined">confirmation_number</span> {{ 'delete_all_liabilities'|_ }}</button>
                                 </div>
                                 <h4>{{ 'accounts'|_ }}</h4>
                                 <p>
@@ -282,7 +282,7 @@
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_unused_accounts')|escape('html') }}"
                                             data-type="unused_accounts" class="confirm btn btn-warning btn-sm"><span
-                                                class="fa fa-credit-card"></span> {{ 'delete_all_unused_accounts'|_ }}
+                                                class="material-icons-outlined">credit_card</span> {{ 'delete_all_unused_accounts'|_ }}
                                     </button>
                                 </div>
 
@@ -292,24 +292,24 @@
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_transactions')|escape('html') }}"
                                             data-type="transactions" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-exchange"></span> {{ 'delete_all_transactions'|_ }}
+                                                class="material-icons-outlined">sync_alt</span> {{ 'delete_all_transactions'|_ }}
                                     </button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_withdrawals')|escape('html') }}"
                                             data-type="withdrawals" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-long-arrow-left"></span> {{ 'delete_all_withdrawals'|_ }}
+                                                class="material-icons-outlined">arrow_back</span> {{ 'delete_all_withdrawals'|_ }}
                                     </button>
 
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_deposits')|escape('html') }}"
                                             data-type="deposits" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-long-arrow-right"></span> {{ 'delete_all_deposits'|_ }}
+                                                class="material-icons-outlined">arrow_right_alt</span> {{ 'delete_all_deposits'|_ }}
                                     </button>
                                     <button type="button"
                                             data-success="{{ trans('firefly.deleted_all_transfers')|escape('html') }}"
                                             data-type="transfers" class="confirm btn btn-danger btn-sm"><span
-                                                class="fa fa-exchange"></span> {{ 'delete_all_transfers'|_ }}</button>
+                                                class="material-icons-outlined">sync_alt</span> {{ 'delete_all_transfers'|_ }}</button>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +331,8 @@
                     return false;
                 }
                 var link = $(e.currentTarget);
-                var classes = link.find('i').attr('class');
+                var icon = link.find('.material-icons-outlined');
+                var originalIconText = icon.text();
                 var url = deleteAPIRoute + '?objects=' + link.data('type');
                 // different URL for purge route:
                 if (link.data('type') === 'purge') {
@@ -343,7 +344,7 @@
 
                 // replace icon with loading thing
                 link.prop('disabled', true);
-                link.find('i').removeClass().addClass('fa fa-spin fa-spinner');
+                icon.addClass('spin').text('autorenew');
 
                 // call API:
                 $.ajax({
@@ -353,11 +354,11 @@
                     function () {
                         // enable button again:
                         link.prop('disabled', false);
-                        link.find('i').removeClass().addClass(classes);
+                        icon.removeClass('spin').text(originalIconText);
                         alert(link.data('success'));
                     }
                 ).fail(function () {
-                    link.find('i').removeClass().addClass('fa fa-exclamation-triangle');
+                    icon.removeClass('spin').text('warning');
                     alert('Could not delete. Sorry.');
                 });
                 return false;

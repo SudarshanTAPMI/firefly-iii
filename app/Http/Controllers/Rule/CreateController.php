@@ -62,7 +62,7 @@ class CreateController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.rules'));
-                app('view')->share('mainTitleIcon', 'fa-random');
+                app('view')->share('mainTitleIcon', 'shuffle');
 
                 $this->ruleRepos = app(RuleRepositoryInterface::class);
 
@@ -125,7 +125,7 @@ class CreateController extends Controller
 
         $triggerCount = count($oldTriggers);
         $actionCount  = count($oldActions);
-        $subTitleIcon = 'fa-clone';
+        $subTitleIcon = 'content_copy';
 
         // title depends on whether or not there is a rule group:
         $subTitle     = (string) trans('firefly.make_new_rule_no_group');
@@ -180,7 +180,7 @@ class CreateController extends Controller
 
         $triggerCount = count($oldTriggers);
         $actionCount  = count($oldActions);
-        $subTitleIcon = 'fa-clone';
+        $subTitleIcon = 'content_copy';
 
         // title depends on whether there is a rule group:
         $subTitle     = (string) trans('firefly.make_new_rule_no_group');
@@ -209,7 +209,7 @@ class CreateController extends Controller
     {
         $request->session()->flash('info', (string) trans('firefly.instructions_rule_from_journal', ['name' => e($journal->description)]));
 
-        $subTitleIcon = 'fa-clone';
+        $subTitleIcon = 'content_copy';
         $subTitle     = (string) trans('firefly.make_new_rule_no_group');
 
         // get triggers and actions for journal.

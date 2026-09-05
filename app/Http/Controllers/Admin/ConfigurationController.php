@@ -47,7 +47,7 @@ class ConfigurationController extends Controller
         $this->middleware(
             static function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.system_settings'));
-                app('view')->share('mainTitleIcon', 'fa-hand-spock-o');
+                app('view')->share('mainTitleIcon', 'back_hand');
 
                 return $next($request);
             }
@@ -63,7 +63,7 @@ class ConfigurationController extends Controller
     public function index()
     {
         $subTitle       = (string) trans('firefly.instance_configuration');
-        $subTitleIcon   = 'fa-wrench';
+        $subTitleIcon   = 'build';
 
         Log::channel('audit')->info('User visits admin config index.');
 

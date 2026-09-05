@@ -21,7 +21,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <template x-if="group.in_use">
-                                        <em class="fa-regular fa-square-check"></em>
+                                        <em class="material-icons-outlined">check_box</em>
                                     </template>
                                     Administration "<span x-text="group.title"></span>"</h3>
                             </div>
@@ -58,27 +58,27 @@
                                 <div class="btn-group">
                                     <template x-if="false === group.in_use">
                                     <button @click="useAdministration(group.id)" class="btn btn-primary">
-                                        <em class="fa-solid fa-coins"></em> Use
+                                        <em class="material-icons-outlined">paid</em> Use
                                     </button>
                                     </template>
                                     <template x-if="true === group.isOwner">
                                     <a :href="'{{route('administrations.edit', [''])}}/' + group.id" class="btn btn-primary">
-                                        <em class="fa-solid fa-pencil"></em> {{ __('firefly.edit') }}
+                                        <em class="material-icons-outlined">edit</em> {{ __('firefly.edit') }}
                                     </a>
                                     </template>
                                     <template x-if="true === group.isOwner">
                                     <a href="#" class="btn btn-primary">
-                                        <em class="fa-solid fa-users"></em> Access rights
+                                        <em class="material-icons-outlined">group</em> Access rights
                                     </a>
                                     </template>
                                     <template x-if="true === group.isOwner">
                                     <a href="#" class="btn btn-danger text-white">
-                                        <em class="fa-solid fa-trash"></em> Delete
+                                        <em class="material-icons-outlined">delete</em> Delete
                                     </a>
                                     </template>
                                     <template x-if="true !== group.isOwner">
                                     <a href="#" class="btn btn-warning">
-                                        <em class="fa-solid fa-person-walking-dashed-line-arrow-right"></em> Leave
+                                        <em class="material-icons-outlined">directions_walk</em> Leave
                                     </a>
                                     </template>
                                 </div>

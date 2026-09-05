@@ -71,7 +71,7 @@ class ProfileController extends Controller
         $this->middleware(
             static function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.profile'));
-                app('view')->share('mainTitleIcon', 'fa-user');
+                app('view')->share('mainTitleIcon', 'person');
 
                 return $next($request);
             }
@@ -129,7 +129,7 @@ class ProfileController extends Controller
         }
         $title        = auth()->user()->email;
         $subTitle     = (string) trans('firefly.delete_account');
-        $subTitleIcon = 'fa-trash';
+        $subTitleIcon = 'delete';
 
         return view('profile.delete-account', compact('title', 'subTitle', 'subTitleIcon'));
     }
@@ -193,7 +193,7 @@ class ProfileController extends Controller
         $title        = auth()->user()->email;
         $name         = app('preferences')->get('display_name')?->data;
         $subTitle     = (string) trans('firefly.change_your_name');
-        $subTitleIcon = 'fa-user-o';
+        $subTitleIcon = 'person';
 
         return view('profile.change-name', compact('title', 'subTitle', 'subTitleIcon', 'name'));
     }
@@ -268,7 +268,7 @@ class ProfileController extends Controller
         $title        = auth()->user()->email;
         $email        = auth()->user()->email;
         $subTitle     = (string) trans('firefly.change_your_email');
-        $subTitleIcon = 'fa-envelope';
+        $subTitleIcon = 'mail';
 
         return view('profile.change-email', compact('title', 'subTitle', 'subTitleIcon', 'email'));
     }
@@ -322,7 +322,7 @@ class ProfileController extends Controller
 
         $title        = auth()->user()->email;
         $subTitle     = (string) trans('firefly.change_your_password');
-        $subTitleIcon = 'fa-key';
+        $subTitleIcon = 'key';
 
         return view('profile.change-password', compact('title', 'subTitle', 'subTitleIcon'));
     }

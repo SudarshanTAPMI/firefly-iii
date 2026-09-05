@@ -11,7 +11,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                     <div class="box box-primary">
                         <div class="box-header with-border box-header--icon">
-                            <span class="box-icon-badge box-icon-badge--info"><span class="fa fa-user-plus"></span></span>
+                            <span class="box-icon-badge box-icon-badge--info"><span class="material-icons-outlined">person_add</span></span>
                             <h3 class="box-title">{{ 'invite_new_user_title'|_ }}</h3>
                         </div>
                         <div class="box-body">
@@ -34,7 +34,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border box-header--icon">
-                    <span class="box-icon-badge box-icon-badge--positive"><span class="fa fa-users"></span></span>
+                    <span class="box-icon-badge box-icon-badge--positive"><span class="material-icons-outlined">group</span></span>
                     <h3 class="box-title">{{ 'all_users'|_ }}</h3>
                 </div>
                 <div class="box-body no-padding">
@@ -68,23 +68,23 @@
                                 </td>
                                 <td class="hidden-xs" data-value="{% if user.isAdmin %}1{% else %}0{% endif %}">
                                     {% if user.isAdmin %}
-                                        <span class="status-dot status-dot--positive"><span class="fa fa-fw fa-check"></span></span>
+                                        <span class="status-dot status-dot--positive"><span class="material-icons-outlined">check</span></span>
                                     {% else %}
-                                        <span class="status-dot status-dot--negative"><span class="fa fa-fw fa-times"></span></span>
+                                        <span class="status-dot status-dot--negative"><span class="material-icons-outlined">close</span></span>
                                     {% endif %}
                                 </td>
                                 <td class="hidden-xs" data-value="{% if user.has2FA %}1{% else %}0{% endif %}">
                                     {% if user.has2FA %}
-                                        <span class="status-dot status-dot--positive"><span class="fa fa-fw fa-check"></span></span>
+                                        <span class="status-dot status-dot--positive"><span class="material-icons-outlined">check</span></span>
                                     {% else %}
-                                        <span class="status-dot status-dot--negative"><span class="fa fa-fw fa-times"></span></span>
+                                        <span class="status-dot status-dot--negative"><span class="material-icons-outlined">close</span></span>
                                     {% endif %}
                                 </td>
                                 <td data-value="{% if user.blocked %}1{% else %}0{% endif %}">
                                     {% if user.blocked == 1 %}
-                                        <span class="status-dot status-dot--negative" title="{{ 'yes'|_ }}"><span class="fa fa-fw fa-check"></span></span>
+                                        <span class="status-dot status-dot--negative" title="{{ 'yes'|_ }}"><span class="material-icons-outlined">check</span></span>
                                     {% else %}
-                                        <span class="status-dot status-dot--positive" title="{{ 'no'|_ }}"><span class="fa fa-fw fa-times"></span></span>
+                                        <span class="status-dot status-dot--positive" title="{{ 'no'|_ }}"><span class="material-icons-outlined">close</span></span>
                                     {% endif %}
                                 </td>
                                 <td class="hidden-xs">
@@ -101,9 +101,9 @@
                                 <td class="hidden-xs users-table__actions" data-value="{{ user.id }}">
                                     <div class="table-row-actions">
                                         <a class="btn btn-default" href="{{ route('settings.users.edit',user.id) }}"><span
-                                                class="fa fa-pencil"></span></a>
+                                                class="material-icons-outlined">edit</span></a>
                                         <a class="btn btn-danger" href="{{ route('settings.users.delete',user.id) }}"><span
-                                                class="fa fa-trash"></span></a>
+                                                class="material-icons-outlined">delete</span></a>
                                     </div>
                                 </td>
                             </tr>
@@ -119,7 +119,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="box">
                     <div class="box-header with-border box-header--icon">
-                        <span class="box-icon-badge box-icon-badge--accent"><span class="fa fa-envelope"></span></span>
+                        <span class="box-icon-badge box-icon-badge--accent"><span class="material-icons-outlined">mail</span></span>
                         <h3 class="box-title">{{ 'all_invited_users'|_ }}</h3>
                     </div>
                     <div class="box-body no-padding">
@@ -163,7 +163,7 @@
                                     <td class="hidden-xs users-table__actions">
                                         <div class="table-row-actions">
                                             <a class="btn btn-danger delete-invite" href="{{ route('settings.users.delete-invite', invitee.id) }}"><span
-                                                    class="fa fa-trash"></span></a>
+                                                    class="material-icons-outlined">delete</span></a>
                                         </div>
                                     </td>
                                 </tr>

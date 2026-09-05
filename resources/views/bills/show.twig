@@ -14,10 +14,10 @@
 
                     <div class="box-tools pull-right">
                         <div class="btn-group">
-                            <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><span class="fa fa-ellipsis-v"></span></button>
+                            <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><span class="material-icons-outlined">more_vert</span></button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('subscriptions.edit', object.data.id) }}"><span class="fa fa-fw fa-pencil"></span> {{ 'edit'|_ }}</a></li>
-                                <li><a href="{{ route('subscriptions.delete', object.data.id) }}"><span class="fa fa-fw fa-trash-o"></span> {{ 'delete'|_ }}</a></li>
+                                <li><a href="{{ route('subscriptions.edit', object.data.id) }}"><span class="material-icons-outlined">edit</span> {{ 'edit'|_ }}</a></li>
+                                <li><a href="{{ route('subscriptions.delete', object.data.id) }}"><span class="material-icons-outlined">delete_outline</span> {{ 'delete'|_ }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,9 +45,9 @@
                             <td style="width:50%;">{{ 'bill_is_active'|_ }}</td>
                             <td>
                                 {% if object.data.active %}
-                                    <span class="fa fa-check fa-fw" title="{{ 'active'|_ }}"></span> {{ 'yes'|_ }}
+                                    <span class="material-icons-outlined" title="{{ 'active'|_ }}">check</span> {{ 'yes'|_ }}
                                 {% else %}
-                                    <span class="fa fa-times fa-fw" title="{{ 'inactive'|_ }}"></span> {{ 'no'|_ }}
+                                    <span class="material-icons-outlined" title="{{ 'inactive'|_ }}">close</span> {{ 'no'|_ }}
                                 {% endif %}
                             </td>
                         </tr>

@@ -62,14 +62,15 @@
         })()
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="v1/css/material-icons.css?v={{ $FF_VERSION }}" rel="stylesheet" type="text/css">
     @vite(['src/sass/app.scss'])
 </head>
 
 <body class="login-page bg-body-secondary">
 <div class="login-box">
     <div class="login-logo">
-        <img src="images/logo-session.png" width="68" height="100" alt="Firefly III Logo" title="Firefly III" /><br>
-        <a href='{{ route('index')  }}'><b>Firefly</b> III</a> </div>
+        <a href='{{ route('index')  }}'><img src="images/logo-login.png" width="240" height="120" alt="Firefly III" title="Firefly III" class="logo-login-img" /></a>
+    </div>
     @yield('content')
 
 

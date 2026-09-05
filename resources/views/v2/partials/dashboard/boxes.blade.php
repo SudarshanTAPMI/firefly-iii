@@ -15,7 +15,7 @@
                 </h4>
                 <template x-if="loading">
                     <p class="d-none d-xs-block">
-                        <em class="fa-solid fa-spinner fa-spin"></em>
+                        <em class="material-icons-outlined spin">autorenew</em>
                     </p>
                 </template>
                 <template x-if="!loading && 0 !== balanceBox.amounts.length">
@@ -30,7 +30,7 @@
                 </template>
             </div>
             <span class="small-box-icon">
-                <i class="fa-solid fa-scale-balanced"></i>
+                <i class="material-icons-outlined">balance</i>
             </span>
 
             <div class="small-box-footer hover-footer d-none d-xl-block">
@@ -67,7 +67,7 @@
                 </template>
                 <template x-if="loading">
                     <p class="d-none d-sm-block">
-                        <em class="fa-solid fa-spinner fa-spin"></em>
+                        <em class="material-icons-outlined spin">autorenew</em>
                     </p>
                 </template>
                 <template x-if="!loading && billBox.unpaid.length > 0">
@@ -78,7 +78,7 @@
                 </template>
             </div>
             <span class="small-box-icon">
-                <em class="fa-regular fa-calendar"></em>
+                <em class="material-icons-outlined">calendar_month</em>
             </span>
             <span class="small-box-footer d-none d-xl-block">
                 <template x-if="0 === billBox.paid.length">
@@ -118,7 +118,7 @@
 
                 <template x-if="loading">
                     <p class="d-none d-sm-block">
-                        <em class="fa-solid fa-spinner fa-spin"></em>
+                        <em class="material-icons-outlined spin">autorenew</em>
                     </p>
                 </template>
                 <template x-if="!loading && 0 !== leftBox.left.length">
@@ -129,7 +129,7 @@
                 </template>
             </div>
             <span class="small-box-icon">
-                <em class="fa-solid fa-money-check-dollar"></em>
+                <em class="material-icons-outlined">request_quote</em>
             </span>
             <span class="small-box-footer d-none d-xl-block">
                 <template x-if="0 !== leftBox.perDay.length">
@@ -164,7 +164,7 @@
 
                 <template x-if="loading">
                     <p class="d-none d-sm-block">
-                        <em class="fa-solid fa-spinner fa-spin"></em>
+                        <em class="material-icons-outlined spin">autorenew</em>
                     </p>
                 </template>
                 <template x-if="!loading">
@@ -174,7 +174,7 @@
                 </template>
             </div>
             <span class="small-box-icon">
-                <i class="fa-solid fa-chart-line"></i>
+                <i class="material-icons-outlined">show_chart</i>
             </span>
             <span class="small-box-footer d-none d-xl-block">
                 &nbsp;

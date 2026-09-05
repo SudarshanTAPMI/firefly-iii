@@ -41,22 +41,22 @@
                                     </td>
                                     <td>
                                         {% if journal.transaction_type_type == 'Withdrawal' %}
-                                            <span class="fa fa-long-arrow-left fa-fw" title="{{ trans('firefly.Withdrawal') }}"></span>
+                                            <span class="material-icons-outlined" title="{{ trans('firefly.Withdrawal') }}">arrow_back</span>
                                         {% endif %}
 
                                         {% if journal.transaction_type_type == 'Deposit' %}
-                                            <span class="fa fa-long-arrow-right fa-fw" title="{{ trans('firefly.Deposit') }}"></span>
+                                            <span class="material-icons-outlined" title="{{ trans('firefly.Deposit') }}">arrow_right_alt</span>
                                         {% endif %}
 
                                         {% if journal.transaction_type_type == 'Transfer' %}
-                                            <span class="fa fa-exchange fa-fw" title="{{ trans('firefly.Deposit') }}"></span>
+                                            <span class="material-icons-outlined" title="{{ trans('firefly.Deposit') }}">sync_alt</span>
                                         {% endif %}
 
                                         {% if journal.transaction_type_type == 'Reconciliation' %}
-                                            <span class="fa-fw fa fa-calculator" title="{{ trans('firefly.reconciliation_transaction') }}"></span>
+                                            <span class="material-icons-outlined" title="{{ trans('firefly.reconciliation_transaction') }}">calculate</span>
                                         {% endif %}
                                         {% if journal.transaction_type_type == 'Opening balance' %}
-                                            <span class="fa-fw fa fa-star-o" title="{{ trans('firefly.Opening balance') }}"></span>
+                                            <span class="material-icons-outlined" title="{{ trans('firefly.Opening balance') }}">star_border</span>
                                         {% endif %}
                                     </td>
                                     <td>

@@ -54,7 +54,7 @@ class CreateController extends Controller
         $this->middleware(
             function ($request, $next) {
                 app('view')->share('title', (string) trans('firefly.piggyBanks'));
-                app('view')->share('mainTitleIcon', 'fa-bullseye');
+                app('view')->share('mainTitleIcon', 'track_changes');
 
                 $this->attachments = app(AttachmentHelperInterface::class);
                 $this->piggyRepos  = app(PiggyBankRepositoryInterface::class);
@@ -72,7 +72,7 @@ class CreateController extends Controller
     public function create(Request $request)
     {
         $subTitle     = (string) trans('firefly.new_piggy_bank');
-        $subTitleIcon = 'fa-plus';
+        $subTitleIcon = 'add';
         $hasOldInput  = null !== $request->old('_token');
         $preFilled    = $request->old();
 

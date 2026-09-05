@@ -15,14 +15,14 @@
         {# Hide budgets? #}
         {% if not hideBudget %}
             <th class="hidden-xs">
-                <span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}"></span>
+                <span class="material-icons-outlined" title="{{ trans('list.budget') }}">pie_chart</span>
             </th>
         {% endif %}
 
         {# Hide categories? #}
         {% if not hideCategory %}
             <th class="hidden-xs">
-                <span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}"></span>
+                <span class="material-icons-outlined" title="{{ trans('list.category') }}">bookmark</span>
             </th>
         {% endif %}
     </tr>
@@ -39,15 +39,15 @@
         <tr class="drag" data-date="{{ transaction.date.format('Y-m-d') }}" data-id="{{ transaction.journal_id }}">
             <td class="hidden-xs">
                 {% if transaction.transaction_type_type == 'Withdrawal' %}
-                    <span class="fa fa-long-arrow-left fa-fw" title="{{ trans('firefly.Withdrawal') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Withdrawal') }}">arrow_back</span>
                 {% endif %}
 
                 {% if transaction.transaction_type_type == 'Deposit' %}
-                    <span class="fa fa-long-arrow-right fa-fw" title="{{ trans('firefly.Deposit') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Deposit') }}">arrow_right_alt</span>
                 {% endif %}
 
                 {% if transaction.transaction_type_type == 'Transfer' %}
-                    <span class="fa fa-exchange fa-fw" title="{{ trans('firefly.Transfer') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Transfer') }}">sync_alt</span>
                 {% endif %}
 
                 {% if transaction.transaction_type_type == 'Reconciliation' %}

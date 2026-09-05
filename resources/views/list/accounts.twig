@@ -37,15 +37,15 @@
     {% for account in accounts %}
         <tr class="sortable-object" data-id="{{ account.id }}" data-order="{{ account.order }}" data-position="{{ loop.index0 }}">
             <td class="hidden-sm hidden-xs">
-                <span class="fa fa-fw fa-bars object-handle"></span>
+                <span class="material-icons-outlined object-handle">menu</span>
             </td>
             <td>
                 <a href="{{ route('accounts.show',account.id) }}">{{ account.name }}</a>
                 {% if account.location %}
-                    <span class="fa fa-fw fa-map-marker"></span>
+                    <span class="material-icons-outlined">location_on</span>
                 {% endif %}
                 {% if account.attachments.count() > 0 %}
-                    <span class="fa fa-fw fa-paperclip"></span>
+                    <span class="material-icons-outlined">attach_file</span>
                 {% endif %}
             </td>
             {% if objectType == "asset" %}
@@ -95,9 +95,9 @@
             {% endif %}
             <td class="hidden-sm hidden-xs">
                 {% if account.active %}
-                    <span class="fa fa-fw fa-check"></span>
+                    <span class="material-icons-outlined">check</span>
                 {% else %}
-                    <span class="fa fa-fw fa-ban"></span>
+                    <span class="material-icons-outlined">block</span>
                 {% endif %}
             </td>
             {# hide last activity to make room for other stuff #}
@@ -132,10 +132,10 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ 'actions'|_ }} <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li><a href="{{ route('accounts.edit',account.id) }}"><span class="fa fa-fw fa-pencil"></span> {{ 'edit'|_ }}</a></li>
-                        <li><a href="{{ route('accounts.delete',account.id) }}"><span class="fa fa-fw fa-trash"></span> {{ 'delete'|_ }}</a></li>
+                        <li><a href="{{ route('accounts.edit',account.id) }}"><span class="material-icons-outlined">edit</span> {{ 'edit'|_ }}</a></li>
+                        <li><a href="{{ route('accounts.delete',account.id) }}"><span class="material-icons-outlined">delete</span> {{ 'delete'|_ }}</a></li>
                         {% if objectType == 'asset' %}
-                        <li><a href="{{ route('accounts.reconcile',account.id) }}"><span class="fa fa-fw fa-check"></span> {{ 'reconcile_this_account'|_ }}</a></li>
+                        <li><a href="{{ route('accounts.reconcile',account.id) }}"><span class="material-icons-outlined">check</span> {{ 'reconcile_this_account'|_ }}</a></li>
                         {% endif %}
                     </ul>
                 </div>

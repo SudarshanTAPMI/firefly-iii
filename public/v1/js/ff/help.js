@@ -33,7 +33,7 @@ function showHelp(e) {
     if (typeof specialPage === 'undefined') {
         specialPage = '';
     }
-    $('#helpBody').html('<span class="fa fa-refresh fa-spin"></span>');
+    $('#helpBody').html('<span class="material-icons-outlined spin">refresh</span>');
     $('#helpModal').modal('show');
     $('#helpTitle').html(helpPageTitle);
     $('#helpBody').html(helpPageBody);

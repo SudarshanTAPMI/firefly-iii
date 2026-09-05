@@ -2,11 +2,11 @@
     <div class="row mb-3">
         <label :for="'piggy_bank_id_' + index"
                class="col-sm-1 col-form-label d-none d-sm-block">
-            <em title="{{ __('firefly.piggy_bank') }}" class="fa-solid fa-piggy-bank"></em>
+            <em title="{{ __('firefly.piggy_bank') }}" class="material-icons-outlined">savings</em>
         </label>
         <div class="col-sm-10">
             <template x-if="formStates.loadingPiggyBanks">
-                <span class="form-control-plaintext"><em class="fa-solid fa-spinner fa-spin"></em></span>
+                <span class="form-control-plaintext"><em class="material-icons-outlined spin">autorenew</em></span>
             </template>
             <template x-if="!formStates.loadingPiggyBanks">
                 <select class="form-control"

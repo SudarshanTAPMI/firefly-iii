@@ -47,8 +47,8 @@ class DeleteController extends Controller
         // translations:
         $this->middleware(
             static function ($request, $next) {
-                app('view')->share('mainTitleIcon', 'fa-bolt');
-                app('view')->share('subTitleIcon', 'fa-trash');
+                app('view')->share('mainTitleIcon', 'bolt');
+                app('view')->share('subTitleIcon', 'delete');
                 app('view')->share('title', (string) trans('firefly.webhooks'));
                 app('view')->share('subTitle', (string) trans('firefly.delete_webhook'));
 

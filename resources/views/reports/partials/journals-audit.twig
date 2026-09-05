@@ -14,8 +14,8 @@
         <th class="hide-from">{{ trans('list.from') }}</th>
         <th class="hide-to">{{ trans('list.to') }}</th>
 
-        <th class="hide-budget"><span class="fa fa-pie-chart fa-fw" title="{{ trans('list.budget') }}"></span></th>
-        <th class="hide-category"><span class="fa fa-bookmark fa-fw" title="{{ trans('list.category') }}"></span></th>
+        <th class="hide-budget"><span class="material-icons-outlined" title="{{ trans('list.budget') }}">pie_chart</span></th>
+        <th class="hide-category"><span class="material-icons-outlined" title="{{ trans('list.category') }}">bookmark</span></th>
         <th class="hide-bill">{{ trans('list.bill') }}</th>
 
         {# more optional fields (2x) #}
@@ -40,30 +40,30 @@
 
             <td class="hide-buttons">
                 <div class="btn-group btn-group-xs">
-                    <a href="{{ route('transactions.edit',journal.transaction_group_id) }}" class="btn btn-xs btn-default"><span class="fa fa-fw fa-pencil"></span></a>
-                    <a href="{{ route('transactions.delete',journal.transaction_group_id) }}" class="btn btn-xs btn-danger"><span class="fa fa-fw fa-trash-o"></span></a>
+                    <a href="{{ route('transactions.edit',journal.transaction_group_id) }}" class="btn btn-xs btn-default"><span class="material-icons-outlined">edit</span></a>
+                    <a href="{{ route('transactions.delete',journal.transaction_group_id) }}" class="btn btn-xs btn-danger"><span class="material-icons-outlined">delete_outline</span></a>
                 </div>
             </td>
 
             <td class="hide-icon">
                 {% if journal.transaction_type_type == 'Withdrawal' %}
-                    <span class="fa fa-long-arrow-left fa-fw" title="{{ trans('firefly.Withdrawal') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Withdrawal') }}">arrow_back</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Deposit' %}
-                    <span class="fa fa-long-arrow-right fa-fw" title="{{ trans('firefly.Deposit') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Deposit') }}">arrow_right_alt</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Transfer' %}
-                    <span class="fa fa-exchange fa-fw" title="{{ trans('firefly.Deposit') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Deposit') }}">sync_alt</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Reconciliation' %}
-                    <span class="fa-fw fa fa-calculator" title="{{ trans('firefly.reconciliation_transaction') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.reconciliation_transaction') }}">calculate</span>
                 {% endif %}
 
                 {% if journal.transaction_type_type == 'Opening balance' %}
-                    <span class="fa-fw fa fa-star-o" title="{{ trans('firefly.Opening balance') }}"></span>
+                    <span class="material-icons-outlined" title="{{ trans('firefly.Opening balance') }}">star_border</span>
                 {% endif %}
 
             </td>

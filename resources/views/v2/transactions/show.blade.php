@@ -18,18 +18,18 @@
                                 <tr>
                                     <th style="width:10%;">
                                         <template x-if="'Withdrawal' === groupProperties.transactionType">
-                                            <em class="fa fa-solid fa-arrow-left"
-                                                :title="groupProperties.transactionTypeTranslated"></em>
+                                            <em class="material-icons-outlined"
+                                                :title="groupProperties.transactionTypeTranslated">arrow_back</em>
                                         </template>
 
                                         <template x-if="'Deposit' === groupProperties.transactionType">
-                                            <em class="fa-solid fa-arrow-right"
-                                                :title="groupProperties.transactionTypeTranslated"></em>
+                                            <em class="material-icons-outlined"
+                                                :title="groupProperties.transactionTypeTranslated">arrow_forward</em>
                                         </template>
 
                                         <template x-if="'Transfer' === groupProperties.transactionType">
-                                            <em class="fa-solid fa-rotate"
-                                                :title="groupProperties.transactionTypeTranslated"></em>
+                                            <em class="material-icons-outlined"
+                                                :title="groupProperties.transactionTypeTranslated">refresh</em>
                                         </template>
                                         <template
                                             x-if="'Transfer' !== groupProperties.transactionType && 'Deposit' !== groupProperties.transactionType && 'Withdrawal' !== groupProperties.transactionType">
@@ -39,7 +39,7 @@
                                     <td><span class="group_title" :data-group="groupProperties.id" x-text="groupProperties.title"></span></td>
                                 </tr>
                                 <tr>
-                                    <th><em class="fa-solid fa-calendar-alt" title="{{ __('list.date') }}"/></th>
+                                    <th><em class="material-icons-outlined" title="{{ __('list.date') }}">calendar_month</em></th>
                                     <td><span x-text="format(groupProperties.date)"></span></td>
                                 </tr>
                                 </tbody>
@@ -48,10 +48,10 @@
                         <div class="card-footer text-end">
                             <div class="btn-group btn-group-sm">
                                 <a class="btn btn-primary" :href="'./transactions/edit/' + groupProperties.id">
-                                    <em class="fa-solid fa-edit"></em> {{ __('firefly.edit') }}
+                                    <em class="material-icons-outlined">edit</em> {{ __('firefly.edit') }}
                                 </a>
                                 <a class="btn btn-danger" :href="'./transactions/delete/' + groupProperties.id">
-                                    <em class="fa-solid fa-trash"></em> {{ __('firefly.delete') }}
+                                    <em class="material-icons-outlined">delete</em> {{ __('firefly.delete') }}
                                 </a>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 <tbody>
                                 <tr>
                                     <th style="width:10%;">
-                                        <em class="fa-solid fa-money-bill-wave" title="{{ __('firefly.amount') }}"></em>
+                                        <em class="material-icons-outlined" title="{{ __('firefly.amount') }}">payments</em>
                                     </th>
                                     <td>
                                         <template x-if="'Withdrawal' === groupProperties.transactionType">
@@ -96,7 +96,7 @@
                                 <tr>
                                     <th>
                                         <em title="{{ __('firefly.source_account') }}"
-                                            class="fa-solid fa-arrow-left"></em>
+                                            class="material-icons-outlined">arrow_back</em>
                                     </th>
                                     <td>
                                         <template x-for="entry in entries">
@@ -109,7 +109,7 @@
                                 <tr>
                                     <th>
                                         <em title="{{ __('firefly.destination_account') }}"
-                                            class="fa-solid fa-arrow-right"></em>
+                                            class="material-icons-outlined">arrow_forward</em>
                                     </th>
                                     <td>
                                         <template x-for="entry in entries">
@@ -203,7 +203,7 @@
                                         <tr>
                                             <th style="width:10%;">
                                                 <em title="{{ __('firefly.category') }}"
-                                                    class="fa-solid fa-bookmark"></em>
+                                                    class="material-icons-outlined">bookmark</em>
                                             </th>
                                             <td><a :href="'./categories/show/' + entry.category_id"
                                                    :title="entry.category_name" x-text="entry.category_name"></a></td>
@@ -212,7 +212,7 @@
                                     <template x-if="null !== entry.budget_name">
                                         <tr>
                                             <th><em title="{{ __('firefly.budget') }}"
-                                                    class="fa-solid fa-chart-pie"></em></th>
+                                                    class="material-icons-outlined">pie_chart</em></th>
                                             <td>
                                                 <a :href="'./budgets/show/' + entry.budget_id"
                                                    :title="entry.budget_name" x-text="entry.budget_name"></a></td>
@@ -221,7 +221,7 @@
                                     <template x-if="null !== entry.bill_name">
                                         <tr>
                                             <td><em title="{{ __('firefly.subscription') }}"
-                                                    class="fa-solid fa-calendar"></em></td>
+                                                    class="material-icons-outlined">calendar_month</em></td>
                                             <td>
                                                 <a :href="'./bills/show/' + entry.bill_id" :title="entry.bill_name"
                                                    x-text="entry.bill_name"></a></td>
@@ -249,7 +249,7 @@
                                     </tr>
                                     <template x-if="entry.tags.length > 0">
                                         <tr>
-                                            <th><em title="{{ __('firefly.tags') }}" class="fa-solid fa-tag"></em></th>
+                                            <th><em title="{{ __('firefly.tags') }}" class="material-icons-outlined">sell</em></th>
                                             <td>
                                                 <template x-for="tag in entry.tags">
                                                     <a class="badge text-bg-info" :href="'./tags/show/' + tag"

@@ -66,7 +66,7 @@
                                     <td x-show="tableColumns.active.visible && tableColumns.active.enabled">&nbsp;</td>
                                     <td x-show="tableColumns.name.visible && tableColumns.name.enabled">
                                         <em x-show="'' !== filters.name && null !== filters.name">"<span x-text="filters.name"></span>"</em>
-                                        <a href="#" @click.prevent="removeFilter('name')"><em class="text-danger fa fa-trash-can"></em></a>
+                                        <a href="#" @click.prevent="removeFilter('name')"><em class="material-icons-outlined text-danger">delete</em></a>
                                     </td>
                                     <td x-show="tableColumns.type.visible && tableColumns.type.enabled">&nbsp;</td>
                                     <td x-show="tableColumns.liability_type.visible && tableColumns.liability_type.enabled">
@@ -102,16 +102,16 @@
                                     <th x-show="tableColumns.active.visible && tableColumns.active.enabled">
                                         <a href="#" x-on:click.prevent="sort('active')">{{ __('list.active') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'active' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-short-wide"></em>
+                                            class="material-icons-outlined">sort</em>
                                         <em x-show="pageOptions.sortingColumn === 'active' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-down-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                     </th>
                                     <th x-show="tableColumns.name.visible && tableColumns.name.enabled">
                                         <a href="#" x-on:click.prevent="sort('name')">{{ __('list.name') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-a-z"></em>
-                                        <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'desc'" class="fa-solid fa-arrow-down-z-a"></em>
-                                        <a @click.prevent="showFilterDialog('name')" href="#" data-bs-toggle="modal" data-bs-target="#filterModal"><em class="fa-solid fa-magnifying-glass"></em></a>
+                                            class="material-icons-outlined">sort_by_alpha</em>
+                                        <em x-show="pageOptions.sortingColumn === 'name' && pageOptions.sortDirection === 'desc'" class="material-icons-outlined">sort_by_alpha</em>
+                                        <a @click.prevent="showFilterDialog('name')" href="#" data-bs-toggle="modal" data-bs-target="#filterModal"><em class="material-icons-outlined">search</em></a>
 
                                     </th>
                                     <th x-show="tableColumns.type.visible && tableColumns.type.enabled">{{ __('list.type') }}</th>
@@ -129,50 +129,50 @@
                                             {{ __('list.account_number') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'account_number' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-a-z"></em>
+                                            class="material-icons-outlined">sort_by_alpha</em>
                                         <em x-show="pageOptions.sortingColumn === 'account_number' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-down-z-a"></em>
+                                            class="material-icons-outlined">sort_by_alpha</em>
                                     </th>
                                     <th x-show="tableColumns.current_balance.visible && tableColumns.current_balance.enabled">
                                         <a href="#" x-on:click.prevent="sort('balance')">
                                             {{ __('list.current_balance') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'balance' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-9-1"></em>
+                                            class="material-icons-outlined">sort</em>
                                         <em x-show="pageOptions.sortingColumn === 'balance' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-down-1-9"></em>
+                                            class="material-icons-outlined">sort</em>
                                     </th>
                                     <th x-show="tableColumns.amount_due.visible && tableColumns.amount_due.enabled">
                                         <a href="#" x-on:click.prevent="sort('current_debt')">
                                             {{ __('list.amount_due') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'current_debt' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                         <em x-show="pageOptions.sortingColumn === 'current_debt' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-up-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                     </th>
                                     <th x-show="tableColumns.last_activity.visible && tableColumns.last_activity.enabled">
                                         <a href="#" x-on:click.prevent="sort('last_activity')">
                                             {{ __('list.last_activity') }}
                                         </a>
                                         <em x-show="pageOptions.sortingColumn === 'last_activity' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                         <em x-show="pageOptions.sortingColumn === 'last_activity' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-up-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                     </th>
                                     <th x-show="tableColumns.balance_difference.visible && tableColumns.balance_difference.enabled">
                                         <a href="#" x-on:click.prevent="sort('balance_difference')">
                                             {{ __('list.balance_difference') }}</a>
                                         <em x-show="pageOptions.sortingColumn === 'balance_difference' && pageOptions.sortDirection === 'asc'"
-                                            class="fa-solid fa-arrow-down-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                         <em x-show="pageOptions.sortingColumn === 'balance_difference' && pageOptions.sortDirection === 'desc'"
-                                            class="fa-solid fa-arrow-up-wide-short"></em>
+                                            class="material-icons-outlined">sort</em>
                                     </th>
                                     <th x-show="tableColumns.menu.visible && tableColumns.menu.enabled">&nbsp;</th>
                                 </tr>
                                 <tr x-show="pageOptions.isLoading">
                                     <td colspan="13" class="text-center">
-                                        <span class="fa fa-spin fa-spinner"></span>
+                                        <span class="material-icons-outlined spin">autorenew</span>
                                     </td>
                                 </tr>
                                 </thead>
@@ -180,15 +180,15 @@
                                 <template x-for="(account, index) in set.accounts" :key="index">
                                     <tr>
                                         <td x-show="tableColumns.drag_and_drop.visible && tableColumns.drag_and_drop.enabled">
-                                            <em class="fa-solid fa-bars"></em>
+                                            <em class="material-icons-outlined">menu</em>
                                         </td>
                                         <td x-show="tableColumns.active.visible && tableColumns.active.enabled">
                                             <template x-if="account.active">
-                                                <em class="text-success fa-solid fa-check"></em>
+                                                <em class="material-icons-outlined text-success">check</em>
                                                 &nbsp;
                                             </template>
                                             <template x-if="!account.active">
-                                                <em class="text-danger fa-solid fa-xmark"></em>
+                                                <em class="material-icons-outlined text-danger">close</em>
                                                 &nbsp;
                                             </template>
                                         </td>
@@ -200,8 +200,8 @@
                                             <!-- edit buttons -->
                                             <em x-show="!account.nameEditorVisible" :data-id="account.id"
                                                 :data-index="index" @click="triggerEdit" data-type="text"
-                                                class="hidden-edit-button inline-edit-button fa-solid fa-pencil"
-                                                :data-id="account.id"></em>
+                                                class="material-icons-outlined hidden-edit-button inline-edit-button"
+                                                :data-id="account.id">edit</em>
 
                                             <!-- edit things -->
                                             <div class="row" x-show="account.nameEditorVisible">
@@ -217,11 +217,11 @@
                                                         <button :data-index="index" :data-id="account.id"
                                                                 data-field="name" type="button"
                                                                 @click="cancelInlineEdit" class="btn btn-danger"><em
-                                                                class="fa-solid fa-xmark text-white"></em></button>
+                                                                class="material-icons-outlined text-white">close</em></button>
                                                         <button :data-index="index" :data-id="account.id"
                                                                 data-field="name" type="submit"
                                                                 @click="submitInlineEdit" class="btn btn-success"><em
-                                                                class="fa-solid fa-check"></em></button>
+                                                                class="material-icons-outlined">check</em></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@
                                         <td x-show="tableColumns.menu.visible && tableColumns.menu.enabled">
                                             <div class="btn-group btn-group-sm">
                                                 <a :href="'./accounts/edit/' + account.id" class="btn btn-sm btn-light"><em
-                                                        class="fa-solid fa-pencil"></em></a>
+                                                        class="material-icons-outlined">edit</em></a>
                                                 <button type="button"
                                                         class="btn btn-light dropdown-toggle dropdown-toggle-split"
                                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -314,15 +314,15 @@
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item"
                                                            :href="'./accounts/show/' + account.id"><em
-                                                                class="fa-solid fa-eye"></em> {{ __('firefly.show') }}
+                                                                class="material-icons-outlined">visibility</em> {{ __('firefly.show') }}
                                                         </a></li>
                                                     <li><a class="dropdown-item"
                                                            :href="'./accounts/reconcile/' + account.id"><em
-                                                                class="fa-solid fa-calculator"></em> {{ __('firefly.reconcile_selected')  }}
+                                                                class="material-icons-outlined">calculate</em> {{ __('firefly.reconcile_selected')  }}
                                                         </a></li>
                                                     <li><a class="dropdown-item"
                                                            :href="'./accounts/delete/' + account.id"><em
-                                                                class="fa-solid fa-trash"></em> {{ __('firefly.delete') }}
+                                                                class="material-icons-outlined">delete</em> {{ __('firefly.delete') }}
                                                         </a></li>
                                                 </ul>
                                             </div>
@@ -438,10 +438,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><em
-                            class="fa-solid fa-right-from-bracket"></em> Cancel
+                            class="material-icons-outlined">logout</em> Cancel
                     </button>
                     <button @click="applyFilter" type="button" class="btn btn-primary" data-bs-dismiss="modal"><em
-                            class="fa-solid fa-magnifying-glass"></em> Search
+                            class="material-icons-outlined">search</em> Search
                     </button>
 
                 </div>
@@ -464,10 +464,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><em
-                            class="fa-solid fa-hat-wizard"></em> Show me around
+                            class="material-icons-outlined">auto_fix_high</em> Show me around
                     </button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><em
-                            class="fa-solid fa-right-from-bracket"></em> Take me to the documentation
+                            class="material-icons-outlined">logout</em> Take me to the documentation
                     </button>
                 </div>
             </div>

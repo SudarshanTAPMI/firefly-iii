@@ -43,6 +43,9 @@
        custom properties; see instrument-panel-tokens.css. #}
     <link href="v1/css/instrument-panel-tokens.css?v={{ FF_VERSION }}" rel="stylesheet" type="text/css"
           nonce="{{ JS_NONCE }}">
+    {# Material Icons Outlined: framework-agnostic, also loaded by layout/v2/session.blade.php. #}
+    <link href="v1/css/material-icons.css?v={{ FF_VERSION }}" rel="stylesheet" type="text/css"
+          nonce="{{ JS_NONCE }}">
     {% if 'browser' == darkMode %}
         <script nonce="{{ JS_NONCE }}">
             // If `prefers-color-scheme` is not supported, fall back to light mode.
@@ -102,7 +105,7 @@
     {% include 'partials.favicons' %}
 
 </head>
-<body class="skin-firefly-iii sidebar-mini hold-transition fixed">
+<body class="skin-firefly-iii sidebar-mini hold-transition fixed{% if sidebarCollapse %} sidebar-collapse{% endif %}">
 <!--
 THESIS: financial data as an operator's instrument panel, not a consumer budgeting toy -- refuses the soft-gradient fintech-app default this category always ships.
 OWN-WORLD: near-black graphite surfaces, one hairline border, amber accent for action/state, Geist Sans/Mono paired throughout (swapped in from IBM Plex for a sharper, more current dashboard face), tabular monospace numerals on every amount, dark by default (light available).
@@ -139,7 +142,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
                     <input autocomplete="off" type="text" name="search" class="form-control"
                            placeholder="{{ 'searchPlaceholder'|_ }}" value="{{ query }}" spellcheck="false"/>
                     <span class="input-group-btn">
-                        <button type="submit" name="go" id="header-search-btn" class="btn btn-flat"><span class="fa fa-search"></span></button>
+                        <button type="submit" name="go" id="header-search-btn" class="btn btn-flat"><span class="material-icons-outlined">search</span></button>
                     </span>
                 </div>
             </form>
@@ -160,17 +163,17 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
                             <button type="button" class="theme-switcher__option{% if darkMode == 'light' %} active{% endif %}"
                                     data-mode="light" role="radio" aria-checked="{% if darkMode == 'light' %}true{% else %}false{% endif %}"
                                     title="{{ 'dark_mode_option_light'|_ }}">
-                                <span class="fa fa-sun-o"></span>
+                                <span class="material-icons-outlined">light_mode</span>
                             </button>
                             <button type="button" class="theme-switcher__option{% if darkMode == 'dark' %} active{% endif %}"
                                     data-mode="dark" role="radio" aria-checked="{% if darkMode == 'dark' %}true{% else %}false{% endif %}"
                                     title="{{ 'dark_mode_option_dark'|_ }}">
-                                <span class="fa fa-moon-o"></span>
+                                <span class="material-icons-outlined">dark_mode</span>
                             </button>
                             <button type="button" class="theme-switcher__option{% if darkMode == 'browser' %} active{% endif %}"
                                     data-mode="browser" role="radio" aria-checked="{% if darkMode == 'browser' %}true{% else %}false{% endif %}"
                                     title="{{ 'dark_mode_option_browser'|_ }}">
-                                <span class="fa fa-desktop"></span>
+                                <span class="material-icons-outlined">computer</span>
                             </button>
                         </div>
                     </li>
@@ -194,38 +197,38 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                             <li>
-                                <a href="{{ route('profile.index') }}"><span class="fa fa-fw fa-user"></span> {{ 'profile'|_ }}</a>
+                                <a href="{{ route('profile.index') }}"><span class="material-icons-outlined">person</span> {{ 'profile'|_ }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('preferences.index') }}"><span class="fa fa-fw fa-gear"></span> {{ 'preferences'|_ }}</a>
+                                <a href="{{ route('preferences.index') }}"><span class="material-icons-outlined">settings</span> {{ 'preferences'|_ }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('currencies.index') }}"><span class="fa fa-fw fa-usd"></span> {{ 'currencies'|_ }}</a>
+                                <a href="{{ route('currencies.index') }}"><span class="material-icons-outlined">attach_money</span> {{ 'currencies'|_ }}</a>
                             </li>
                             {% if config('cer.enabled') %}
                                 <li>
-                                    <a href="{{ route('exchange-rates.index') }}"><span class="fa fa-fw fa-exchange"></span> {{ 'menu_exchange_rates_index'|_ }}</a>
+                                    <a href="{{ route('exchange-rates.index') }}"><span class="material-icons-outlined">sync_alt</span> {{ 'menu_exchange_rates_index'|_ }}</a>
                                 </li>
                             {% endif %}
                             {% if hasRole('owner') %}
                                 <li>
-                                    <a href="{{ route('settings.index') }}"><span class="fa fa-fw fa-hand-spock-o"></span> {{ 'system_settings'|_ }}</a>
+                                    <a href="{{ route('settings.index') }}"><span class="material-icons-outlined">back_hand</span> {{ 'system_settings'|_ }}</a>
                                 </li>
                             {% endif %}
                             <li>
                                 <a href="#" id="help" data-route="{{ original_route_name }}" data-extra="{{ objectType|default("") }}">
-                                    <span class="fa fa-fw fa-question-circle" data-route="{{ original_route_name }}" data-extra="{{ objectType|default("") }}"></span> {{ 'help_menu_item'|_ }}
+                                    <span class="material-icons-outlined" data-route="{{ original_route_name }}" data-extra="{{ objectType|default("") }}">help</span> {{ 'help_menu_item'|_ }}
                                 </a>
                             </li>
                             <li class="divider"></li>
                             {% if 'web' == authGuard %}
                                 <li>
-                                    <a href="{{ route('logout') }}" class="logout-link"><span class="fa fa-fw fa-sign-out"></span> {{ 'logout'|_ }}</a>
+                                    <a href="{{ route('logout') }}" class="logout-link"><span class="material-icons-outlined">logout</span> {{ 'logout'|_ }}</a>
                                 </li>
                             {% endif %}
                             {% if 'remote_user_guard' == authGuard and '' != logoutUrl %}
                                 <li>
-                                    <a href="{{ logoutUrl }}"><span class="fa fa-fw fa-sign-out"></span> {{ 'logout'|_ }}</a>
+                                    <a href="{{ logoutUrl }}"><span class="material-icons-outlined">logout</span> {{ 'logout'|_ }}</a>
                                 </li>
                             {% endif %}
                         </ul>

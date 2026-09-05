@@ -3,7 +3,7 @@
     <div class="col-sm-3">
         <!-- is loading currencies -->
         <template x-if="formStates.loadingCurrencies">
-            <span class="form-control-plaintext"><em class="fa-solid fa-spinner fa-spin"></em></span>
+            <span class="form-control-plaintext"><em class="material-icons-outlined spin">autorenew</em></span>
         </template>
         <!-- is no longer loading currencies -->
         <template x-if="!formStates.loadingCurrencies">

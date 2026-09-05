@@ -1,0 +1,92 @@
+/*
+ * material-icons.css
+ *
+ * Self-hosted Material Icons Outlined (Apache-2.0,
+ * github.com/google/material-design-icons) -- replaces Font Awesome as this
+ * app's icon set, everywhere. A ligature font: the glyph is selected by the
+ * element's own text content (e.g. "edit"), not a fa-* class suffix.
+ *
+ * Framework-agnostic on purpose: both the v1 (AdminLTE/Twig) and v2
+ * (Bootstrap 5/Blade) layouts load this same file directly, since v2's own
+ * asset pipeline (resources/assets/v2, Vite) is entirely separate from v1's
+ * instrument-panel*.css and never sees it otherwise.
+ */
+
+@font-face {
+    font-family: "Material Icons Outlined";
+    src: url("../fonts/material-icons/material-icons-outlined.woff2") format("woff2"),
+         url("../fonts/material-icons/material-icons-outlined.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+/* font-size scales with context (max(16px, 1em), i.e. "inherit, but never
+   smaller than 16px") rather than the font's own 24px default -- FA icons
+   here were always sized by their surrounding text, and hardcoding 24px
+   would blow up every icon sitting in a 13px table row or button. The
+   16px floor exists because this is an *outlined* (thin-stroke) face:
+   below that, glyphs like "add_circle" (a circle around a plus) lose
+   enough stroke width to become nearly invisible -- confirmed live on the
+   budget page's tiny (12px, btn-xs) "add a currency limit" button, which
+   silently rendered as a blank circle before this floor was added. Font
+   Awesome's icons were simple enough to stay legible at that size; these
+   are not. */
+.material-icons-outlined {
+    font-family: "Material Icons Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: max(16px, 1em);
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    /* Default (baseline) sits the glyph's bottom edge on the adjacent text's
+       baseline -- fine when the icon is the same size as that text, but
+       everywhere an icon sits next to a label at a different size (the
+       sidebar's 16px icon beside 13.5px text is the case this was caught
+       on), baseline reads as the icon sitting visibly low. middle centers
+       it against the text instead. Icons with no adjacent inline content
+       (badges, the theme switcher) are flex-centered by their own
+       container and unaffected either way. */
+    vertical-align: middle;
+    /* font-display:block above means: until this font loads, the element's
+       *actual* text content ("dashboard", "calendar_month", "sync_alt", ...)
+       lays out invisibly using fallback-font metrics -- full English words,
+       much wider than the ~1em square a ligature glyph resolves to. That
+       reserved-but-wrong width is exactly the "everything is misaligned
+       while loading" symptom: sidebar labels, dropdown items, and KPI card
+       icons all sit at the wrong offset until the font swaps in and the box
+       suddenly shrinks. Pinning the box to the icon's own real width (and
+       clipping the invisible overflow) makes layout identical before and
+       after the swap -- confirmed empirically that no real glyph is wider
+       than this in the loaded state, so nothing here ever gets clipped for
+       real. */
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+}
+
+/* Replaces fa-spin (a loading spinner glyph, e.g. rules/index.js's "test
+   these triggers" button) -- same rotation, new class name since the glyph
+   swap is now a text-content change rather than a fa-flask/fa-spinner class
+   swap. */
+@keyframes icon-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+.material-icons-outlined.spin {
+    animation: icon-spin 2s infinite linear;
+}

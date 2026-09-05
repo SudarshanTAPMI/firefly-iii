@@ -1,7 +1,7 @@
 <div class="row mb-3">
     <label :for="'dest_' + index"
            class="col-sm-1 col-form-label d-none d-sm-block">
-        <em title="{{ __('firefly.destination_account') }}" class="fa-solid fa-arrow-right"></em>
+        <em title="{{ __('firefly.destination_account') }}" class="material-icons-outlined">arrow_forward</em>
     </label>
     <div class="col-sm-10">
         <input type="text"
